@@ -15,7 +15,7 @@ public abstract class UniqueKeyCounter
     /**
      * Internal counter
      */
-    private static int internalCounter = 0;
+    private static int internalCounter;
 
 
     /**
@@ -23,7 +23,6 @@ public abstract class UniqueKeyCounter
      */
     protected UniqueKeyCounter()
     {
-        super();
     }
 
     /**

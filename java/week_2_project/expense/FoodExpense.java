@@ -1,4 +1,18 @@
 package week_2_project.expense;
 
-public class FoodExpense {
+/**
+ * Food expense
+ */
+public class FoodExpense extends Expense
+{
+    /**
+     * Constructor
+     *
+     * @param expense expense amount
+     * @param name    name of expense
+     */
+    public FoodExpense(double expense, String name)
+    {
+        super(expense, name);
+    }
 }
