@@ -1,4 +1,14 @@
 package week_2_project.gauge;
 
-public class TireGauge {
+/**
+ * Tire gauge
+ */
+public class TireGauge extends Gauge
+{
+    /**
+     * default constructor
+     */
+    public TireGauge()
+    {
+    }
 }

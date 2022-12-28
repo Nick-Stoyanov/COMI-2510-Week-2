@@ -1,4 +1,17 @@
 package week_2_project.gauge;
 
-public class FuelGauge {
+/**
+ * Fuel gauge
+ */
+public class FuelGauge extends Gauge
+{
+    /**
+     * Defaults constructor
+     */
+    public FuelGauge()
+    {
+
+    }
+
+
 }

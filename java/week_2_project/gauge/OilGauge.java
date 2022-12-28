@@ -1,4 +1,13 @@
 package week_2_project.gauge;
 
-public class OilGauge {
+/**
+ * oil gauge
+ */
+public class OilGauge extends Gauge{
+    /**
+     * Default constructor
+     */
+    public OilGauge()
+    {
+    }
 }
