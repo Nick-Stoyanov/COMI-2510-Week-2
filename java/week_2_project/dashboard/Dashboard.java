@@ -36,7 +36,7 @@ public interface Dashboard
     /**
      * Returns the tire gauge.
      *
-     * @return
+     * @return tire gauge
      */
     Gauge getTireGauge();
 

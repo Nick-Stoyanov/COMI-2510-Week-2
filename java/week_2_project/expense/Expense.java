@@ -95,9 +95,9 @@ public abstract class Expense extends UniqueKeyCounter
     }
 
     /**
-     * to string
+     * Returns a string representation
      *
-     * @return
+     * @return string representation
      */
     @Override
     public String toString()
