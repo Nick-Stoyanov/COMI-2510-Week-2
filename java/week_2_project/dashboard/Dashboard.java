@@ -8,7 +8,9 @@ import week_2_project.gauge.Gauge;
 import java.util.ArrayList;
 
 /**
+ * Dashboard interface for all types of vehicles.
  *
+ * @author Nick
  */
 public interface Dashboard
 {

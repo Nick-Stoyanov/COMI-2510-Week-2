@@ -32,6 +32,16 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
 
 
     /**
+     * Default constructor
+     *
+     * @param name the name
+     */
+    public Automobile(String name)
+    {
+        this.name = name;
+    }
+
+    /**
      * Returns the fuel gauge
      *
      * @return the fuel gauge
@@ -109,14 +119,6 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     public void setTireGauge(double maximumAmount, double currentAmount)
     {
 
-    }
-
-    /**
-     * Default constructor
-     */
-    public Automobile(String name)
-    {
-        this.name = name;
     }
 
     /**

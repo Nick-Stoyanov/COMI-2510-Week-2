@@ -40,6 +40,16 @@ public class TotalExpense extends UniqueKeyCounter
      */
     private double purchasePrice;
 
+    /**
+     * Constructor
+     *
+     * @param name name of the expense
+     */
+    public TotalExpense(String name)
+    {
+        this.name = name;
+    }
+
 
     /**
      * Add the food cost to the current total
@@ -264,6 +274,11 @@ public class TotalExpense extends UniqueKeyCounter
         this.purchasePrice = purchasePrice;
     }
 
+    /**
+     * The grand total cost of all expenses
+     *
+     * @return the grand total cost of all expenses
+     */
     public double getGrandTotalCost()
     {
         return foodCost + fourTires + fuelCost + hotelCost + oilChange + purchasePrice;
