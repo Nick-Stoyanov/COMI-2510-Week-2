@@ -2,6 +2,8 @@ package week_2_project.poi;
 
 /**
  * Poi data
+ *
+ * @author Nick
  */
 public class PoiData
 {

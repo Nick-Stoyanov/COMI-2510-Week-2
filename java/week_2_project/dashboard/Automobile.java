@@ -16,11 +16,11 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     /**
      * List of gauges for this automobile
      */
-    private ArrayList<Gauge> gaugeList = new ArrayList<>();
+    private final ArrayList<Gauge> gaugeList = new ArrayList<>();
     /**
      * Average MPG
      */
-    private double mpg = 0;
+    private final double mpg = 0;
     /**
      * Name
      */
