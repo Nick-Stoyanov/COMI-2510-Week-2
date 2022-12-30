@@ -1,9 +1,11 @@
 package week_2_project.test;
 
+import week_2_project.common.UniqueKeyCounter;
 import week_2_project.poi.PoiData;
 import week_2_project.sales.SalesTrip;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Sales trip data
@@ -16,7 +18,7 @@ public class SalesTripTestData extends TestDataSource
     /**
      * test data list
      */
-    protected ArrayList<SalesTrip> testDataList = new ArrayList<>();
+    protected ArrayList<SalesTrip> testDataList;
 
     /**
      * Constructor
@@ -26,6 +28,17 @@ public class SalesTripTestData extends TestDataSource
     public SalesTripTestData(boolean useExcel)
     {
         super(useExcel);
+        this.setKey(UniqueKeyCounter.getInternalCounter());
+
+        this.setTestDataList(new ArrayList<SalesTrip>());
+
+        if (useExcel)
+        {
+            stageWithExcelData();
+        } else
+        {
+            stageWithFixedData();
+        }
     }
 
     /**
@@ -41,7 +54,8 @@ public class SalesTripTestData extends TestDataSource
                              double duration,
                              double distance)
     {
-
+        SalesTrip expense = new SalesTrip(fromCity, destinationCity, duration, distance);
+        this.getTestDataList().add(expense);
     }
 
     /**
@@ -51,7 +65,7 @@ public class SalesTripTestData extends TestDataSource
      */
     public ArrayList<SalesTrip> getTestDataList()
     {
-        return null;
+        return this.getTestDataList();
     }
 
     /**
@@ -61,7 +75,7 @@ public class SalesTripTestData extends TestDataSource
      */
     protected void setTestDataList(ArrayList<SalesTrip> testDataList)
     {
-
+        this.testDataList = testDataList;
     }
 
     /**
@@ -71,7 +85,16 @@ public class SalesTripTestData extends TestDataSource
      */
     public double getTotalSalesTripDistance()
     {
-        return 0.0;
+        double distance = 0;
+        Iterator<SalesTrip> i = this.getTestDataList().iterator();
+        SalesTrip salesTrip = null;
+
+        while (i.hasNext())
+        {
+            salesTrip = i.next();
+            distance += salesTrip.getDistance();
+        }
+        return distance;
     }
 
     /**
@@ -81,7 +104,17 @@ public class SalesTripTestData extends TestDataSource
      */
     public double getTotalSalesTripDuration()
     {
-        return 0.0;
+        double duration = 0;
+
+        Iterator<SalesTrip> i = this.getTestDataList().iterator();
+        SalesTrip salesTrip = null;
+
+        while (i.hasNext())
+        {
+            salesTrip = i.next();
+            duration += salesTrip.getDuration();
+        }
+        return duration;
     }
 
     /**
@@ -94,7 +127,31 @@ public class SalesTripTestData extends TestDataSource
     @Override
     protected void handlePoiDataRowResults(ArrayList<PoiData> rowDataList)
     {
+        PoiData data = null;
+        int columnNumber = 0;
 
+        String fromCity = null;
+        String toCity = null;
+        double duration = 0;
+        double distance = 0;
+
+        data = rowDataList.get(columnNumber);
+        fromCity = poiDataValueToString(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        toCity = poiDataValueToString(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        duration = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        distance = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        this.addExpenses(fromCity, toCity, duration, distance);
     }
 
     /**
@@ -105,7 +162,7 @@ public class SalesTripTestData extends TestDataSource
     @Override
     protected int getWorksheetNumber()
     {
-        return 0;
+        return 2;
     }
 
     /**
@@ -114,7 +171,13 @@ public class SalesTripTestData extends TestDataSource
     @Override
     protected void stageWithFixedData()
     {
-
+        this.addExpenses("Providence", "Miami", 22.5, 1462.7);
+        this.addExpenses("Miami", "Dallas", 19.75, 1309.1);
+        this.addExpenses("Dallas", "Los Angeles", 21.5, 1435.7);
+        this.addExpenses("Los Angeles", "Seattle", 17.9, 1135.1);
+        this.addExpenses("Seattle", "Chicago", 31, 2042.8);
+        this.addExpenses("Chicago", "New York", 12.2, 788.9);
+        this.addExpenses("New York", "Providence", 3.5, 180.9);
     }
 
     /**
@@ -125,7 +188,7 @@ public class SalesTripTestData extends TestDataSource
     @Override
     protected String getFileName()
     {
-        return null;
+        return TotalExpenseConstants.getInputFileName();
     }
 
     /**
@@ -136,8 +199,17 @@ public class SalesTripTestData extends TestDataSource
     @Override
     public String toString()
     {
-        return "SalesTripTestData{" +
-                "testDataList=" + testDataList +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getClass());
+        Iterator<SalesTrip> i = this.getTestDataList().iterator();
+        SalesTrip salesTrip = null;
+
+        while (i.hasNext())
+        {
+            sb.append("\n\n").append(salesTrip.toString());
+        }
+
+        return sb.toString();
     }
 }

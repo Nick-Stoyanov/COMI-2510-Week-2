@@ -25,6 +25,16 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     private AutomobileExpenseTestData automobileExpenseTestData;
 
     /**
+     * Sets the automobile test data
+     *
+     * @param automobileTestData the automobileTestData to set
+     */
+    public void setAutomobileTestData(AutomobileTestData automobileTestData)
+    {
+        this.automobileTestData = automobileTestData;
+    }
+
+    /**
      * Automobile test data
      */
     private AutomobileTestData automobileTestData;

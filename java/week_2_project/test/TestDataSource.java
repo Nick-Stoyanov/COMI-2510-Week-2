@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import week_2_project.common.UniqueKeyCounter;
 import week_2_project.poi.PoiData;
+import week_2_project.poi.PoiReadDataList;
 
 import java.util.ArrayList;
 
@@ -131,7 +132,15 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected void stageWithExcelData()
     {
+        PoiReadDataList poiReadDataList = new PoiReadDataList(this.getFileName(),getWorksheetNumber());
 
+        if (needToTransposeExcelData())
+        {
+            handlePoiDataResults(poiReadDataList.getTransposedTestDataList());
+        }
+        else {
+            handlePoiDataResults(poiReadDataList.getTestDataList());
+        }
     }
 
 
