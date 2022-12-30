@@ -81,7 +81,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean needToTransposeExcelData()
     {
-        return true;
+        return false;
     }
 
 
@@ -95,7 +95,15 @@ public abstract class TestDataSource extends UniqueKeyCounter
     protected double poiDataValueToDouble(int columnNumber,
                                           PoiData poiData)
     {
-        return 0.0;
+        double value = -666;
+        if (null != poiData.getValue() && poiData.getValue() instanceof Double)
+        {
+            value = (double) poiData.getValue();
+        } else
+        {
+            logger.error("column=" + columnNumber + "Invalid Data Type. Please enter Double.");
+        }
+        return value;
     }
 
 
@@ -109,7 +117,14 @@ public abstract class TestDataSource extends UniqueKeyCounter
     protected String poiDataValueToString(int columnNumber,
                                           PoiData poiData)
     {
-
+        String value = null;
+        if (null != poiData.getValue() && poiData.getValue() instanceof String)
+        {
+            value = (String) poiData.getValue();
+        } else
+        {
+            logger.error("column=" + columnNumber + "Invalid Data Type. Please enter String.");
+        }
         return null;
     }
 
@@ -132,13 +147,13 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected void stageWithExcelData()
     {
-        PoiReadDataList poiReadDataList = new PoiReadDataList(this.getFileName(),getWorksheetNumber());
+        PoiReadDataList poiReadDataList = new PoiReadDataList(this.getFileName(), getWorksheetNumber());
 
         if (needToTransposeExcelData())
         {
             handlePoiDataResults(poiReadDataList.getTransposedTestDataList());
-        }
-        else {
+        } else
+        {
             handlePoiDataResults(poiReadDataList.getTestDataList());
         }
     }

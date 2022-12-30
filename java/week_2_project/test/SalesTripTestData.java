@@ -65,7 +65,7 @@ public class SalesTripTestData extends TestDataSource
      */
     public ArrayList<SalesTrip> getTestDataList()
     {
-        return this.getTestDataList();
+        return this.testDataList;
     }
 
     /**

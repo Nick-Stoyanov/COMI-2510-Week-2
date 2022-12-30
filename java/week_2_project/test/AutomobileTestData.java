@@ -1,10 +1,12 @@
 package week_2_project.test;
 
+import week_2_project.common.UniqueKeyCounter;
 import week_2_project.dashboard.Automobile;
-import week_2_project.expense.Expense;
 import week_2_project.poi.PoiData;
 
+import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Automobile test data
@@ -17,7 +19,7 @@ public class AutomobileTestData extends TestDataSource
     /**
      * test data list
      */
-    protected ArrayList<Automobile> testDataList = new ArrayList<>();
+    protected ArrayList<Automobile> testDataList;
 
     /**
      * Constructor
@@ -27,6 +29,17 @@ public class AutomobileTestData extends TestDataSource
     public AutomobileTestData(boolean useExcel)
     {
         super(useExcel);
+        this.setKey(UniqueKeyCounter.getInternalCounter());
+
+        this.setTestDataList(new ArrayList<Automobile>());
+
+        if (useExcel)
+        {
+            stageWithExcelData();
+        } else
+        {
+            stageWithFixedData();
+        }
     }
 
     /**
@@ -44,6 +57,16 @@ public class AutomobileTestData extends TestDataSource
                              double oilChange,
                              double tireLife)
     {
+        Automobile automobile = new Automobile(name);
+
+        automobile.setFuelGauge(fuelCapacity, fuelCapacity);
+        automobile.setOilGauge(oilChange, oilChange);
+        automobile.setTireGauge(tireLife, tireLife);
+        JOptionPane.showMessageDialog(null, name +"\n"+ mpg + "\n"+ fuelCapacity +"\n"+ oilChange +"\n"+ tireLife);
+        this.getTestDataList().add(automobile);
+        JOptionPane.showMessageDialog(null, name +"\n"+ mpg + "\n"+ fuelCapacity +"\n"+ oilChange +"\n"+ tireLife);
+
+
 
     }
 
@@ -55,7 +78,7 @@ public class AutomobileTestData extends TestDataSource
      */
     public Automobile getAutomobile(String name)
     {
-        return null;
+        return testDataList.get(0);
     }
 
     /**
@@ -65,7 +88,7 @@ public class AutomobileTestData extends TestDataSource
      */
     public ArrayList<Automobile> getTestDataList()
     {
-        return testDataList;
+        return this.testDataList;
     }
 
     /**
@@ -75,7 +98,7 @@ public class AutomobileTestData extends TestDataSource
      */
     protected void setTestDataList(ArrayList<Automobile> testDataList)
     {
-
+        this.testDataList = testDataList;
     }
 
     /**
@@ -120,7 +143,9 @@ public class AutomobileTestData extends TestDataSource
     @Override
     protected void stageWithFixedData()
     {
-
+        this.addExpenses("Mercedes S-Class", 24, 22, 10000, 50000);
+        this.addExpenses("Lexus ES", 28, 15.9, 8000, 40000);
+        this.addExpenses("Honda Accord", 47, 12, 3000, 35000);
     }
 
     /**
@@ -131,7 +156,7 @@ public class AutomobileTestData extends TestDataSource
     @Override
     protected String getFileName()
     {
-        return null;
+        return TotalExpenseConstants.getInputFileName();
     }
 
     /**
@@ -139,11 +164,21 @@ public class AutomobileTestData extends TestDataSource
      *
      * @return a string representation of the object
      */
+    /*
     @Override
     public String toString()
     {
-        return "AutomobileTestData{" +
-                "testDataList=" + testDataList +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass());
+        Iterator<Automobile> i = this.getTestDataList().iterator();
+        Automobile automobile = null;
+
+        while (i.hasNext())
+        {
+            sb.append("\n\n").append(automobile.toString());
+        }
+        return sb.toString();
     }
+
+    */
 }
