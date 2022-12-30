@@ -1,6 +1,7 @@
 package week_2_project.test;
 
 import week_2_project.dashboard.Automobile;
+import week_2_project.expense.Expense;
 import week_2_project.poi.PoiData;
 
 import java.util.ArrayList;
@@ -64,7 +65,7 @@ public class AutomobileTestData extends TestDataSource
      */
     public ArrayList<Automobile> getTestDataList()
     {
-        return null;
+        return testDataList;
     }
 
     /**
@@ -86,8 +87,7 @@ public class AutomobileTestData extends TestDataSource
      */
     protected boolean needToTransposeExcelData()
     {
-        boolean need = true;
-        return need;
+        return true;
     }
 
     /**

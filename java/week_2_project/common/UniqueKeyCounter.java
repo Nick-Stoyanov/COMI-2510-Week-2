@@ -1,9 +1,9 @@
 /**
- * Unique key counter that all objects will implment.
+ * Unique key counter that all objects will implement.
  * Intellectual property and the number of objects created are critical to the implementation.
- * Therfore, all objects will implement this class and generate an unique object id.
+ * Therefore, all objects will implement this class and generate a unique object id.
  * An object id is not the same as a class id.
- * For example if there are 3 object instatiations of class then there will be 3 unique object ids.
+ * For example if there are 3 object instantiations of class then there will be 3 unique object ids.
  */
 package week_2_project.common;
 
@@ -23,6 +23,9 @@ public abstract class UniqueKeyCounter
      */
     protected UniqueKeyCounter()
     {
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
+
     }
 
     /**

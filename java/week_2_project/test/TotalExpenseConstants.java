@@ -13,7 +13,7 @@ public class TotalExpenseConstants
     /**
      * input file name
      */
-    public static final String INPUT_FILE_NAME = null;
+    public static final String INPUT_FILE_NAME = "src/main/resources/in/TravelExpenses.xlsx";
     /**
      * output file name prefix
      * output file name is 3 components path + prefix + suffix

@@ -80,8 +80,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean needToTransposeExcelData()
     {
-        boolean transpose = true;
-        return transpose;
+        return true;
     }
 
 
@@ -95,8 +94,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
     protected double poiDataValueToDouble(int columnNumber,
                                           PoiData poiData)
     {
-        double dataValue = 0;
-        return dataValue;
+        return 0.0;
     }
 
 
@@ -110,8 +108,8 @@ public abstract class TestDataSource extends UniqueKeyCounter
     protected String poiDataValueToString(int columnNumber,
                                           PoiData poiData)
     {
-        String dataValue = "0";
-        return dataValue;
+
+        return null;
     }
 
 
@@ -124,8 +122,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean skipFirstRow()
     {
-        boolean skip = true;
-        return skip;
+        return true;
     }
 
 
@@ -150,8 +147,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     public boolean useExcel()
     {
-        boolean use = true;
-        return use;
+        return true;
     }
 
     /**
