@@ -56,7 +56,7 @@ public class PoiData
      */
     public int getColumnNumber()
     {
-        return columnNumber;
+        return this.columnNumber;
     }
 
     /**
@@ -76,7 +76,7 @@ public class PoiData
      */
     public int getRowNumber()
     {
-        return rowNumber;
+        return this.rowNumber;
     }
 
     /**
@@ -96,7 +96,7 @@ public class PoiData
      */
     public Object getValue()
     {
-        return value;
+        return this.value;
     }
 
     /**

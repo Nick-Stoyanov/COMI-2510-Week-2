@@ -2,14 +2,17 @@ package week_2_project.expense;
 
 /**
  * Static utility to calculate expenses
+ *
+ * @author Nick
  */
 public class ExpenseHelper
 {
     /**
      * default constructor
      */
-    public ExpenseHelper()
+    protected ExpenseHelper()
     {
+        super();
     }
 
     /**

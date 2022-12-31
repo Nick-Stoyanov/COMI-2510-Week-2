@@ -27,7 +27,7 @@ public class TravelEntertainmentExpense
                                       double hotelExpense,
                                       double foodExpense)
     {
-
+        super();
     }
 
     /**
@@ -37,7 +37,7 @@ public class TravelEntertainmentExpense
      */
     public FoodExpense getFood()
     {
-        return foodExpense;
+        return this.foodExpense;
     }
 
     /**
@@ -47,7 +47,7 @@ public class TravelEntertainmentExpense
      */
     public double getFoodExpense()
     {
-        return foodExpense.getExpense();
+        return this.foodExpense.getExpense();
     }
 
     /**
@@ -57,7 +57,7 @@ public class TravelEntertainmentExpense
      */
     public HotelExpense getHotel()
     {
-        return hotelExpense;
+        return this.hotelExpense;
     }
 
     /**
@@ -67,7 +67,7 @@ public class TravelEntertainmentExpense
      */
     public double getHotelExpense()
     {
-        return hotelExpense.getExpense();
+        return this.hotelExpense.getExpense();
     }
 
     /**

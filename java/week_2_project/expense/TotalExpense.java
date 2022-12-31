@@ -4,6 +4,8 @@ import week_2_project.common.UniqueKeyCounter;
 
 /**
  * Total expense
+ *
+ * @author Nick
  */
 public class TotalExpense extends UniqueKeyCounter
 {
@@ -119,7 +121,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFoodCost()
     {
-        return foodCost;
+        return this.foodCost;
     }
 
     /**
@@ -139,7 +141,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFourTires()
     {
-        return fourTires;
+        return this.fourTires;
     }
 
     /**
@@ -159,7 +161,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFuelCost()
     {
-        return fuelCost;
+        return this.fuelCost;
     }
 
     /**
@@ -179,7 +181,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getHotelCost()
     {
-        return hotelCost;
+        return this.hotelCost;
     }
 
     /**
@@ -200,7 +202,7 @@ public class TotalExpense extends UniqueKeyCounter
     @Override
     public int getKey()
     {
-        return key;
+        return this.key;
     }
 
     /**
@@ -221,7 +223,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     /**
@@ -241,7 +243,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getOilChange()
     {
-        return oilChange;
+        return this.oilChange;
     }
 
     /**
@@ -261,7 +263,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getPurchasePrice()
     {
-        return purchasePrice;
+        return this.purchasePrice;
     }
 
     /**

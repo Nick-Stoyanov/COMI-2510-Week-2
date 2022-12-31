@@ -78,12 +78,13 @@ public class TotalExpenseTest
         Iterator<TotalExpense> i = totalExpenseList.iterator();
         TotalExpense total = null;
 
-        while (i.hasNext()){
+        while (i.hasNext())
+        {
             total = i.next();
             logger.debug("totalCost=" + total.toString());
             sb.append(formatString(total)).append("\n\n");
         }
-        return null;
+        return sb.toString();
     }
 
     /**
@@ -206,11 +207,14 @@ public class TotalExpenseTest
     public static void main(String[] args)
     {
 
-    StringBuilder sb = new StringBuilder();
-    totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
 
-    sb.append(gloriousArgs(args));
-    sb.append(stageData(false));
+        StringBuilder sb = new StringBuilder();
+
+        totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
+
+        sb.append(gloriousArgs(args));
+        sb.append(stageData(false));
+
 
         JOptionPane.showMessageDialog(null, sb.toString());
 

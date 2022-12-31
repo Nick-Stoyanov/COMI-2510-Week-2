@@ -62,10 +62,9 @@ public class AutomobileTestData extends TestDataSource
         automobile.setFuelGauge(fuelCapacity, fuelCapacity);
         automobile.setOilGauge(oilChange, oilChange);
         automobile.setTireGauge(tireLife, tireLife);
-        JOptionPane.showMessageDialog(null, name +"\n"+ mpg + "\n"+ fuelCapacity +"\n"+ oilChange +"\n"+ tireLife);
+        JOptionPane.showMessageDialog(null, name + "\n" + mpg + "\n" + fuelCapacity + "\n" + oilChange + "\n" + tireLife);
         this.getTestDataList().add(automobile);
-        JOptionPane.showMessageDialog(null, name +"\n"+ mpg + "\n"+ fuelCapacity +"\n"+ oilChange +"\n"+ tireLife);
-
+        JOptionPane.showMessageDialog(null, name + "\n" + mpg + "\n" + fuelCapacity + "\n" + oilChange + "\n" + tireLife);
 
 
     }
@@ -108,6 +107,7 @@ public class AutomobileTestData extends TestDataSource
      * @return true to transpose the result data, so the columns become
      * the rows and the rows become the columns
      */
+    @Override
     protected boolean needToTransposeExcelData()
     {
         return true;
@@ -164,7 +164,7 @@ public class AutomobileTestData extends TestDataSource
      *
      * @return a string representation of the object
      */
-    /*
+
     @Override
     public String toString()
     {
@@ -180,5 +180,5 @@ public class AutomobileTestData extends TestDataSource
         return sb.toString();
     }
 
-    */
+
 }

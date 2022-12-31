@@ -23,6 +23,14 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
     private double maximumAmount;
 
     /**
+     * Constructor
+     */
+    protected Gauge()
+    {
+        super();
+    }
+
+    /**
      * * Returns the current amount. Gauges have a "maximum" amount and "current" amount.
      * The current amount is never more than the maximum. The current can start at 0 and
      * reach the maximum, or start at the maximum and go to 0.
@@ -31,7 +39,7 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
      */
     public double getCurrentAmount()
     {
-        return currentAmount;
+        return this.currentAmount;
     }
 
     /**
@@ -54,7 +62,7 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
     @Override
     public int getKey()
     {
-        return key;
+        return this.key;
     }
 
     /**
@@ -75,7 +83,17 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
      */
     public double getMaximumAmount()
     {
-        return maximumAmount;
+        return this.maximumAmount;
+    }
+
+    /**
+     * Sets the maximum amount
+     *
+     * @param maximumAmount the maximum amount
+     */
+    public void setMaximumAmount(double maximumAmount)
+    {
+        this.maximumAmount = maximumAmount;
     }
 
     /**
@@ -91,23 +109,6 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
                 ", key=" + key +
                 ", maximumAmount=" + maximumAmount +
                 '}';
-    }
-
-    /**
-     * Sets the maximum amount
-     *
-     * @param maximumAmount the maximum amount
-     */
-    public void setMaximumAmount(double maximumAmount)
-    {
-        this.maximumAmount = maximumAmount;
-    }
-
-    /**
-     * Constructor
-     */
-    public Gauge()
-    {
     }
 
 }

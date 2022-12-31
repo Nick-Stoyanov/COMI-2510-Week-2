@@ -1,5 +1,6 @@
 package week_2_project.test;
 
+import week_2_project.common.UniqueKeyCounter;
 import week_2_project.expense.FoodExpense;
 import week_2_project.expense.HotelExpense;
 import week_2_project.expense.TravelEntertainmentExpense;
@@ -27,6 +28,17 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     public TravelEntertainmentExpenseTestData(boolean useExcel)
     {
         super(useExcel);
+        this.setKey(UniqueKeyCounter.getInternalCounter());
+
+        this.setTestDataList(new ArrayList<TravelEntertainmentExpense>());
+
+        if (useExcel)
+        {
+            stageWithExcelData();
+        } else
+        {
+            stageWithFixedData();
+        }
     }
 
 
@@ -41,7 +53,8 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
                              double hotelExpense,
                              double foodExpense)
     {
-
+        TravelEntertainmentExpense expense = new TravelEntertainmentExpense(name, hotelExpense, foodExpense);
+        this.getTestDataList().add(expense);
     }
 
     /**
@@ -52,8 +65,15 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public FoodExpense getFoodExpense(String name)
     {
-        return null;
+        FoodExpense fe = null;
+        for (int i = 0; i < testDataList.size(); i++)
+            if (name == this.testDataList.get(i).getFood().getName())
+            {
+                fe = this.testDataList.get(i).getFood();
+            }
+        return fe;
     }
+
 
     /**
      * Returns the hotel HotelExpense
@@ -63,8 +83,17 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public HotelExpense getHotelExpense(String name)
     {
-        return null;
+        HotelExpense he = null;
+        for (int i = 0; i < testDataList.size(); i++)
+            if (name == this.testDataList.get(i).getHotel().getName())
+            {
+                he = this.testDataList.get(i).getHotel();
+            }
+        return he;
+
+
     }
+
 
     /**
      * Returns the test data list
@@ -73,7 +102,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public ArrayList<TravelEntertainmentExpense> getTestDataList()
     {
-        return null;
+        return this.testDataList;
     }
 
 
@@ -84,7 +113,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     protected void setTestDataList(ArrayList<TravelEntertainmentExpense> testDataList)
     {
-
+        this.testDataList = testDataList;
     }
 
 
@@ -98,6 +127,26 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     @Override
     protected void handlePoiDataRowResults(ArrayList<PoiData> rowDataList)
     {
+        PoiData data = null;
+        int columnNumber = 0;
+
+        String name = null;
+        double hotelExpense = 0;
+        double foodExpense = 0;
+
+        data = rowDataList.get(columnNumber);
+        name = poiDataValueToString(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        hotelExpense = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        foodExpense = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        this.addExpenses(name, hotelExpense, foodExpense);
 
     }
 
@@ -109,7 +158,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     @Override
     protected int getWorksheetNumber()
     {
-        return 0;
+        return 3;
     }
 
     /**
@@ -118,6 +167,11 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     @Override
     protected void stageWithFixedData()
     {
+        this.addExpenses("Honda Accord", 283.35, 75.50);
+        this.addExpenses("Jeep Cherokee", 374.60, 75.01);
+        this.addExpenses("Lexus ES", 418.75, 100.75);
+        this.addExpenses("Lincoln Navigator", 525.60, 75.75);
+        this.addExpenses("Mercedes S-Class", 1121.50, 250.99);
 
     }
 
@@ -129,7 +183,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     @Override
     protected String getFileName()
     {
-        return null;
+        return TotalExpenseConstants.getInputFileName();
     }
 
     /**

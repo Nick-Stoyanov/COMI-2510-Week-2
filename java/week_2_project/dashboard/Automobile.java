@@ -48,7 +48,8 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      */
     public Gauge getFuelGauge()
     {
-        return getFuelGauge();
+
+        return null;
     }
 
     /**
@@ -59,7 +60,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public ArrayList<Gauge> getGaugeList()
     {
-        return gaugeList;
+        return this.gaugeList;
     }
 
     /**
@@ -71,7 +72,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     public Gauge getOilGauge()
     {
 
-        return getOilGauge();
+        return this.getOilGauge();
     }
 
     /**
@@ -94,6 +95,8 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setFuelGauge(double maximumAmount, double currentAmount)
     {
+        gaugeList.add(getFuelGauge());
+
 
     }
 
@@ -106,7 +109,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setOilGauge(double maximumAmount, double currentAmount)
     {
-
+        setOilGauge(maximumAmount, currentAmount);
     }
 
     /**
@@ -118,7 +121,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setTireGauge(double maximumAmount, double currentAmount)
     {
-
+        this.setTireGauge(maximumAmount, currentAmount);
     }
 
     /**
@@ -129,7 +132,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public int getKey()
     {
-        return key;
+        return this.key;
     }
 
     /**
@@ -150,7 +153,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      */
     public double getMpg()
     {
-        return mpg;
+        return this.mpg;
     }
 
     /**
@@ -160,7 +163,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     /**

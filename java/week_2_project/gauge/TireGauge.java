@@ -2,6 +2,8 @@ package week_2_project.gauge;
 
 /**
  * Tire gauge
+ *
+ * @author Nick
  */
 public class TireGauge extends Gauge
 {
@@ -10,5 +12,6 @@ public class TireGauge extends Gauge
      */
     public TireGauge()
     {
+        super();
     }
 }

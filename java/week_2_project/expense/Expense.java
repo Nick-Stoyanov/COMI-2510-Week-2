@@ -4,6 +4,8 @@ import week_2_project.common.UniqueKeyCounter;
 
 /**
  * Abstract representation of an expense
+ *
+ * @author Nick
  */
 public abstract class Expense extends UniqueKeyCounter
 {
@@ -39,7 +41,7 @@ public abstract class Expense extends UniqueKeyCounter
      */
     public double getExpense()
     {
-        return expense;
+        return this.expense;
     }
 
     /**
@@ -60,7 +62,7 @@ public abstract class Expense extends UniqueKeyCounter
     @Override
     public int getKey()
     {
-        return key;
+        return this.key;
     }
 
     /**
@@ -81,7 +83,7 @@ public abstract class Expense extends UniqueKeyCounter
      */
     public String getName()
     {
-        return name;
+        return this.name;
     }
 
     /**

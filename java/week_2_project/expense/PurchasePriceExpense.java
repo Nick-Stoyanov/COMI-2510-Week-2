@@ -2,6 +2,8 @@ package week_2_project.expense;
 
 /**
  * Purchase price
+ *
+ * @author Nick
  */
 public class PurchasePriceExpense extends Expense
 {

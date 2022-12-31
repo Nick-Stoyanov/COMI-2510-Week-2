@@ -51,7 +51,7 @@ public class SalesTrip extends UniqueKeyCounter
      */
     public String getDestinationCity()
     {
-        return destinationCity;
+        return this.destinationCity;
     }
 
     /**
@@ -71,7 +71,7 @@ public class SalesTrip extends UniqueKeyCounter
      */
     public String getFromCity()
     {
-        return fromCity;
+        return this.fromCity;
     }
 
     /**
@@ -91,7 +91,7 @@ public class SalesTrip extends UniqueKeyCounter
      */
     public double getDistance()
     {
-        return distance;
+        return this.distance;
     }
 
     /**
@@ -111,7 +111,7 @@ public class SalesTrip extends UniqueKeyCounter
      */
     public double getDuration()
     {
-        return duration;
+        return this.duration;
     }
 
     /**
@@ -131,7 +131,7 @@ public class SalesTrip extends UniqueKeyCounter
      */
     public int getKey()
     {
-        return key;
+        return this.key;
     }
 
     /**
