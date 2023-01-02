@@ -208,6 +208,7 @@ public class SalesTripTestData extends TestDataSource
 
         while (i.hasNext())
         {
+            salesTrip = i.next();
             sb.append("\n\n").append(salesTrip.toString());
         }
 

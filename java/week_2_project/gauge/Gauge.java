@@ -28,6 +28,8 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
     protected Gauge()
     {
         super();
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
     }
 
     /**

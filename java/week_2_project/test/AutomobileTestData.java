@@ -31,7 +31,7 @@ public class AutomobileTestData extends TestDataSource
         super(useExcel);
         this.setKey(UniqueKeyCounter.getInternalCounter());
 
-        this.setTestDataList(new ArrayList<Automobile>());
+        testDataList= new ArrayList<>();
 
         if (useExcel)
         {
@@ -175,6 +175,7 @@ public class AutomobileTestData extends TestDataSource
 
         while (i.hasNext())
         {
+            automobile = i.next();
             sb.append("\n\n").append(automobile.toString());
         }
         return sb.toString();

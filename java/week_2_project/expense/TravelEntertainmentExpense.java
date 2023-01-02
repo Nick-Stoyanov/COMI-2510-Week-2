@@ -28,6 +28,10 @@ public class TravelEntertainmentExpense
                                       double foodExpense)
     {
         super();
+        this.foodExpense = new FoodExpense(foodExpense,name);
+        this.hotelExpense = new HotelExpense(hotelExpense,name);
+
+
     }
 
     /**

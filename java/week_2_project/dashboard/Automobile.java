@@ -13,17 +13,19 @@ import java.util.ArrayList;
 
 /**
  * Define class
+ *
+ * @author Nick
  */
 public class Automobile extends UniqueKeyCounter implements Dashboard
 {
     /**
-     * List of gauges for this automobile
-     */
-    private final ArrayList<Gauge> gaugeList;
-    /**
      * Average MPG
      */
     private final double mpg = 0;
+    /**
+     * List of gauges for this automobile
+     */
+    private ArrayList<Gauge> gaugeList;
     /**
      * Name
      */
@@ -41,7 +43,9 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      */
     public Automobile(String name)
     {
-        this.key = getInternalCounter();
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
+
         this.name = name;
 
         gaugeList = new ArrayList<>();
@@ -53,18 +57,6 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
 
         TireGauge tireGauge = new TireGauge();
         gaugeList.add(tireGauge);
-
-    }
-
-    /**
-     * Returns the fuel gauge
-     *
-     * @return the fuel gauge
-     */
-    public Gauge getFuelGauge()
-    {
-
-        return gaugeList.get(0);
     }
 
     /**
@@ -79,19 +71,44 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     }
 
     /**
+     * Returns the fuel gauge
+     *
+     * @return the fuel gauge
+     */
+    public Gauge getFuelGauge()
+    {
+        int index = 0;
+
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof FuelGauge)
+            {
+                index = i;
+            }
+        }
+        return gaugeList.get(index);
+    }
+
+
+    /**
      * Returns the oil gauge
      *
      * @return the oilGauge
      */
 
-    private void setGaugeList(ArrayList<Gauge> gaugeList){
-        this.gaugeList = gaugeList;
-    }
     @Override
     public Gauge getOilGauge()
     {
+        int index = 0;
 
-        return this.gaugeList.get(1);
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof OilGauge)
+            {
+                index = i;
+            }
+        }
+        return gaugeList.get(index);
     }
 
     /**
@@ -102,7 +119,16 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public Gauge getTireGauge()
     {
-        return this.gaugeList.get(2);
+        int index = 0;
+
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof TireGauge)
+            {
+                index = i;
+            }
+        }
+        return gaugeList.get(index);
     }
 
     /**
@@ -114,7 +140,14 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setFuelGauge(double maximumAmount, double currentAmount)
     {
-        gaugeList.add(getFuelGauge());
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof FuelGauge)
+            {
+                gaugeList.get(i).setMaximumAmount(maximumAmount);
+                gaugeList.get(i).setCurrentAmount(currentAmount);
+            }
+        }
 
 
     }
@@ -128,7 +161,14 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setOilGauge(double maximumAmount, double currentAmount)
     {
-        setOilGauge(maximumAmount, currentAmount);
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof OilGauge)
+            {
+                gaugeList.get(i).setMaximumAmount(maximumAmount);
+                gaugeList.get(i).setCurrentAmount(currentAmount);
+            }
+        }
     }
 
     /**
@@ -140,7 +180,14 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public void setTireGauge(double maximumAmount, double currentAmount)
     {
-        this.setTireGauge(maximumAmount, currentAmount);
+        for (int i = 0; i < gaugeList.size(); i++)
+        {
+            if (gaugeList.get(i) instanceof TireGauge)
+            {
+                gaugeList.get(i).setMaximumAmount(maximumAmount);
+                gaugeList.get(i).setCurrentAmount(currentAmount);
+            }
+        }
     }
 
     /**

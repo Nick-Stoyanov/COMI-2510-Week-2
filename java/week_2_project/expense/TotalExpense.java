@@ -49,6 +49,8 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public TotalExpense(String name)
     {
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
         this.name = name;
     }
 

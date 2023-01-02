@@ -1,6 +1,5 @@
 package week_2_project.test;
 
-import week_2_project.common.UniqueKeyCounter;
 import week_2_project.expense.*;
 import week_2_project.poi.PoiData;
 
@@ -11,13 +10,14 @@ import java.util.ArrayList;
  *
  * @author Nick
  */
+@SuppressWarnings("DuplicatedCode")
 public class AutomobileExpenseTestData extends TestDataSource
 {
 
     /**
      * test data list
      */
-    protected ArrayList<Expense> testDataList = new ArrayList<>();
+    protected ArrayList<Expense> testDataList;
 
 
     /**
@@ -28,9 +28,10 @@ public class AutomobileExpenseTestData extends TestDataSource
     public AutomobileExpenseTestData(boolean useExcel)
     {
         super(useExcel);
-        this.setKey(UniqueKeyCounter.getInternalCounter());
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
 
-        this.setTestDataList(new ArrayList<Expense>());
+        testDataList = new ArrayList<>();
 
         if (useExcel)
         {
@@ -56,17 +57,15 @@ public class AutomobileExpenseTestData extends TestDataSource
                              double gasPerUnit,
                              double fourTires)
     {
-        PurchasePriceExpense  purchase = new PurchasePriceExpense(purchasePrice,name);
-        OilExpense oil = new OilExpense(oilChange,name);
+        PurchasePriceExpense purchase = new PurchasePriceExpense(purchasePrice, name);
+        OilExpense oil = new OilExpense(oilChange, name);
         FuelExpense fuel = new FuelExpense(gasPerUnit, name);
-        TireExpense tire = new TireExpense(fourTires,name);
+        TireExpense tire = new TireExpense(fourTires, name);
 
         this.getTestDataList().add(purchase);
         this.getTestDataList().add(oil);
         this.getTestDataList().add(fuel);
         this.getTestDataList().add(tire);
-
-
 
 
     }
@@ -79,7 +78,16 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     public Expense getFuelExpense(String name)
     {
-        return null;
+        int index = 0;
+
+        for (int i = 0; i < testDataList.size(); i++)
+        {
+            if (testDataList.get(i) instanceof FoodExpense)
+            {
+                index = i;
+            }
+        }
+        return testDataList.get(index);
     }
 
 
@@ -91,7 +99,16 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     public Expense getOilExpense(String name)
     {
-        return null;
+        int index = 0;
+
+        for (int i = 0; i < testDataList.size(); i++)
+        {
+            if (testDataList.get(i) instanceof OilExpense)
+            {
+                index = i;
+            }
+        }
+        return testDataList.get(index);
     }
 
 
@@ -103,7 +120,16 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     public Expense getPurchasePriceExpense(String name)
     {
-        return null;
+        int index = 0;
+
+        for (int i = 0; i < testDataList.size(); i++)
+        {
+            if (testDataList.get(i) instanceof PurchasePriceExpense)
+            {
+                index = i;
+            }
+        }
+        return testDataList.get(index);
     }
 
 
@@ -114,7 +140,7 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     public ArrayList<Expense> getTestDataList()
     {
-        return null;
+        return testDataList;
     }
 
     /**
@@ -124,7 +150,7 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     protected void setTestDataList(ArrayList<Expense> testDataList)
     {
-
+        this.testDataList = testDataList;
     }
 
     /**
@@ -148,7 +174,16 @@ public class AutomobileExpenseTestData extends TestDataSource
      */
     public Expense getTireExpense(String name)
     {
-        return null;
+        int index = 0;
+
+        for (int i = 0; i < testDataList.size(); i++)
+        {
+            if (testDataList.get(i) instanceof TireExpense)
+            {
+                index = i;
+            }
+        }
+        return testDataList.get(index);
     }
 
     /**
@@ -161,6 +196,38 @@ public class AutomobileExpenseTestData extends TestDataSource
     @Override
     protected void handlePoiDataRowResults(ArrayList<PoiData> rowDataList)
     {
+
+
+        PoiData data = null;
+        int columnNumber = 0;
+
+        String name = null;
+        double purchasePrice = 0;
+        double oilChange = 0;
+        double gasPerUnit = 0;
+        double fourTires = 0;
+
+        data = rowDataList.get(columnNumber);
+        name = poiDataValueToString(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        purchasePrice = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        oilChange = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        gasPerUnit = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        fourTires = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        this.addExpenses(name, purchasePrice, oilChange, gasPerUnit, fourTires);
 
     }
 
@@ -196,6 +263,6 @@ public class AutomobileExpenseTestData extends TestDataSource
     @Override
     protected String getFileName()
     {
-        return null;
+        return TotalExpenseConstants.getInputFileName();
     }
 }

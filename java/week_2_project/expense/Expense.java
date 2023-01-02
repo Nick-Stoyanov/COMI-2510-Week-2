@@ -30,6 +30,8 @@ public abstract class Expense extends UniqueKeyCounter
      */
     public Expense(double expense, String name)
     {
+        int tot = this.getKey() + 1;
+        this.setKey(tot);
         this.expense = expense;
         this.name = name;
     }

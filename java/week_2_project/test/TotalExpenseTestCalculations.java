@@ -23,37 +23,22 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      * Automobile expense test data
      */
     private AutomobileExpenseTestData automobileExpenseTestData;
-
-    /**
-     * Sets the automobile test data
-     *
-     * @param automobileTestData the automobileTestData to set
-     */
-    public void setAutomobileTestData(AutomobileTestData automobileTestData)
-    {
-        this.automobileTestData = automobileTestData;
-    }
-
     /**
      * Automobile test data
      */
     private AutomobileTestData automobileTestData;
-
     /**
      * Unique object key
      */
     private int key;
-
     /**
      * Sales trip test data
      */
     private SalesTripTestData salesTripTestData;
-
     /**
      * total cost list
      */
     private ArrayList<TotalExpense> totalCostList;
-
     /**
      * Travel and entertainment expense test data
      */
@@ -64,6 +49,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public TotalExpenseTestCalculations()
     {
+        super();
     }
 
     /**
@@ -75,7 +61,6 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     {
         return null;
     }
-
 
     /**
      * Calculate the expense totals
@@ -95,6 +80,16 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     public AutomobileTestData getAutomobileTestData()
     {
         return null;
+    }
+
+    /**
+     * Sets the automobile test data
+     *
+     * @param automobileTestData the automobileTestData to set
+     */
+    public void setAutomobileTestData(AutomobileTestData automobileTestData)
+    {
+        this.automobileTestData = automobileTestData;
     }
 
     /**

@@ -65,9 +65,10 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public FoodExpense getFoodExpense(String name)
     {
+        String expenseName = name;
         FoodExpense fe = null;
         for (int i = 0; i < testDataList.size(); i++)
-            if (name == this.testDataList.get(i).getFood().getName())
+            if (name.equals(this.testDataList.get(i).getFood().getName()))
             {
                 fe = this.testDataList.get(i).getFood();
             }
@@ -83,9 +84,10 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public HotelExpense getHotelExpense(String name)
     {
+
         HotelExpense he = null;
         for (int i = 0; i < testDataList.size(); i++)
-            if (name == this.testDataList.get(i).getHotel().getName())
+            if (name.equals(this.testDataList.get(i).getHotel().getName()))
             {
                 he = this.testDataList.get(i).getHotel();
             }
