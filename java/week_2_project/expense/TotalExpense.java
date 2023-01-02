@@ -123,7 +123,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFoodCost()
     {
-        return this.foodCost;
+        return foodCost;
     }
 
     /**
@@ -143,7 +143,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFourTires()
     {
-        return this.fourTires;
+        return fourTires;
     }
 
     /**
@@ -163,7 +163,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getFuelCost()
     {
-        return this.fuelCost;
+        return fuelCost;
     }
 
     /**
@@ -183,7 +183,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getHotelCost()
     {
-        return this.hotelCost;
+        return hotelCost;
     }
 
     /**
@@ -204,7 +204,7 @@ public class TotalExpense extends UniqueKeyCounter
     @Override
     public int getKey()
     {
-        return this.key;
+        return key;
     }
 
     /**
@@ -225,7 +225,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public String getName()
     {
-        return this.name;
+        return name;
     }
 
     /**
@@ -245,7 +245,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getOilChange()
     {
-        return this.oilChange;
+        return oilChange;
     }
 
     /**
@@ -265,7 +265,7 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getPurchasePrice()
     {
-        return this.purchasePrice;
+        return purchasePrice;
     }
 
     /**

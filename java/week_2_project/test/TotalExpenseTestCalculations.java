@@ -50,6 +50,8 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     public TotalExpenseTestCalculations()
     {
         super();
+        totalCostList = new ArrayList<>();
+
     }
 
     /**
@@ -59,7 +61,15 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public TotalExpense calculateGrandTotals()
     {
-        return null;
+        double total = 0.0;
+        TotalExpense totalExpense = new TotalExpense("Grand Total");
+        for (int i = 0; i < totalCostList.size(); i++)
+        {
+            total += totalCostList.get(i).getGrandTotalCost();
+
+        }
+
+        return totalExpense;
     }
 
     /**
@@ -69,7 +79,13 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public ArrayList<TotalExpense> calculateTotals()
     {
-        return null;
+        for (int i = 0; i < automobileTestData.getTestDataList().size(); i++)
+        {
+            TotalExpense expense = new TotalExpense(automobileTestData.getTestDataList().get(i).getName());
+            totalCostList.add(expense);
+
+        }
+        return totalCostList;
     }
 
     /**
@@ -79,7 +95,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public AutomobileTestData getAutomobileTestData()
     {
-        return null;
+        return automobileTestData;
     }
 
     /**
@@ -99,7 +115,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public AutomobileExpenseTestData getExpenseTestData()
     {
-        return null;
+        return automobileExpenseTestData;
     }
 
     /**
@@ -109,7 +125,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public SalesTripTestData getSalesTripTestData()
     {
-        return null;
+        return salesTripTestData;
     }
 
     /**
@@ -119,7 +135,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public void setSalesTripTestData(SalesTripTestData salesTripTestData)
     {
-
+        this.salesTripTestData = salesTripTestData;
     }
 
     /**
@@ -129,7 +145,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public ArrayList<TotalExpense> getTotalCostList()
     {
-        return null;
+        return totalCostList;
     }
 
     /**
@@ -139,7 +155,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public void setTotalCostList(ArrayList<TotalExpense> totalCostList)
     {
-
+        this.totalCostList = totalCostList;
     }
 
     /**
@@ -149,7 +165,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public TravelEntertainmentExpenseTestData getTravelExpenseData()
     {
-        return null;
+        return travelEntertainmentExpenseTestData;
     }
 
     /**
@@ -159,7 +175,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public void setAutomobileExpenseTestData(AutomobileExpenseTestData automobileExpenseTestData)
     {
-
+        this.automobileExpenseTestData = automobileExpenseTestData;
     }
 
     /**
@@ -169,7 +185,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public void setTravelEntertainmentExpenseData(TravelEntertainmentExpenseTestData travelEntertainmentExpenseTestData)
     {
-
+        this.travelEntertainmentExpenseTestData = travelEntertainmentExpenseTestData;
     }
 
 
@@ -181,7 +197,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     @Override
     public int getKey()
     {
-        return 0;
+        return key;
     }
 
     /**
@@ -192,7 +208,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     @Override
     protected void setKey(int key)
     {
-
+        this.key = key;
     }
 
     /**

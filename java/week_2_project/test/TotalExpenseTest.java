@@ -188,6 +188,7 @@ public class TotalExpenseTest
 
         totalExpenseWriteDataFile.setDataList(new ArrayList<ArrayList<Object>>());
         totalExpenseWriteDataFile.addTotalExpenseHeading();
+        i = totalCostList.iterator();
 
         while (i.hasNext())
         {
@@ -218,12 +219,15 @@ public class TotalExpenseTest
 
         JOptionPane.showMessageDialog(null, sb.toString());
 
+        /*
         sb.setLength(0);
         sb.append(stageData(true));
 
         JOptionPane.showMessageDialog(null, sb.toString());
 
         totalExpenseWriteDataFile.writeFile();
+        */
+
 
 
     }

@@ -4,7 +4,6 @@ import week_2_project.common.UniqueKeyCounter;
 import week_2_project.dashboard.Automobile;
 import week_2_project.poi.PoiData;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -31,7 +30,7 @@ public class AutomobileTestData extends TestDataSource
         super(useExcel);
         this.setKey(UniqueKeyCounter.getInternalCounter());
 
-        testDataList= new ArrayList<>();
+        testDataList = new ArrayList<>();
 
         if (useExcel)
         {
@@ -62,9 +61,8 @@ public class AutomobileTestData extends TestDataSource
         automobile.setFuelGauge(fuelCapacity, fuelCapacity);
         automobile.setOilGauge(oilChange, oilChange);
         automobile.setTireGauge(tireLife, tireLife);
-        JOptionPane.showMessageDialog(null, name + "\n" + mpg + "\n" + fuelCapacity + "\n" + oilChange + "\n" + tireLife);
+
         this.getTestDataList().add(automobile);
-        JOptionPane.showMessageDialog(null, name + "\n" + mpg + "\n" + fuelCapacity + "\n" + oilChange + "\n" + tireLife);
 
 
     }
