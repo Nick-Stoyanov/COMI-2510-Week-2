@@ -49,6 +49,8 @@ public interface Dashboard
      * @param currentAmount - a full tank of fuel is equal to the maximum amount
      */
 
+
+
     void setFuelGauge(double maximumAmount, double currentAmount);
 
     /**

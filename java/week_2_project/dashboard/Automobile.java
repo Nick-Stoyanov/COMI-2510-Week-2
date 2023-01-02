@@ -4,7 +4,10 @@
 package week_2_project.dashboard;
 
 import week_2_project.common.UniqueKeyCounter;
+import week_2_project.gauge.FuelGauge;
 import week_2_project.gauge.Gauge;
+import week_2_project.gauge.OilGauge;
+import week_2_project.gauge.TireGauge;
 
 import java.util.ArrayList;
 
@@ -16,7 +19,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     /**
      * List of gauges for this automobile
      */
-    private final ArrayList<Gauge> gaugeList = new ArrayList<>();
+    private final ArrayList<Gauge> gaugeList;
     /**
      * Average MPG
      */
@@ -38,7 +41,19 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      */
     public Automobile(String name)
     {
+        this.key = getInternalCounter();
         this.name = name;
+
+        gaugeList = new ArrayList<>();
+        FuelGauge fuelGauge = new FuelGauge();
+        gaugeList.add(fuelGauge);
+
+        OilGauge oilGauge = new OilGauge();
+        gaugeList.add(oilGauge);
+
+        TireGauge tireGauge = new TireGauge();
+        gaugeList.add(tireGauge);
+
     }
 
     /**
@@ -49,7 +64,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     public Gauge getFuelGauge()
     {
 
-        return null;
+        return gaugeList.get(0);
     }
 
     /**
@@ -68,11 +83,15 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      *
      * @return the oilGauge
      */
+
+    private void setGaugeList(ArrayList<Gauge> gaugeList){
+        this.gaugeList = gaugeList;
+    }
     @Override
     public Gauge getOilGauge()
     {
 
-        return this.getOilGauge();
+        return this.gaugeList.get(1);
     }
 
     /**
@@ -83,7 +102,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public Gauge getTireGauge()
     {
-        return this.getTireGauge();
+        return this.gaugeList.get(2);
     }
 
     /**
@@ -141,7 +160,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
      * @param key the key
      */
     @Override
-    public void setKey(int key)
+    protected void setKey(int key)
     {
         this.key = key;
     }
