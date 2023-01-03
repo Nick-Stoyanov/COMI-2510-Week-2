@@ -99,11 +99,11 @@ public class TotalExpenseTest
         sb.append("____________________");
         sb.append("\n");
         sb.append("____________________");
-        sb.append("\n");
+        sb.append("\n\n");
 
         if (args.length == 0)
         {
-            sb.append("Horrible args! No glory.");
+            sb.append("Horrible args! No glory.\n");
         } else
         {
             sb.append("All hail our Glorious Leader: ");
@@ -111,12 +111,13 @@ public class TotalExpenseTest
             {
                 sb.append(args).append(" ");
             }
-            sb.append("!!!\n");
-            sb.append("____________________");
-            sb.append("\n");
-            sb.append("____________________");
-            sb.append("\n");
         }
+
+        sb.append("____________________");
+        sb.append("\n");
+        sb.append("____________________");
+        sb.append("\n\n\n\n");
+
         return sb.toString();
     }
 
@@ -227,7 +228,6 @@ public class TotalExpenseTest
 
         totalExpenseWriteDataFile.writeFile();
         */
-
 
 
     }

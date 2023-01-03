@@ -28,7 +28,7 @@ public abstract class Expense extends UniqueKeyCounter
      * @param expense expense amount
      * @param name    expense name
      */
-    public Expense(double expense, String name)
+    protected Expense(double expense, String name)
     {
         int tot = this.getKey() + 1;
         this.setKey(tot);

@@ -6,6 +6,7 @@ import week_2_project.sales.SalesTrip;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Sales trip data
@@ -30,7 +31,7 @@ public class SalesTripTestData extends TestDataSource
         super(useExcel);
         this.setKey(UniqueKeyCounter.getInternalCounter());
 
-        this.setTestDataList(new ArrayList<SalesTrip>());
+        this.setTestDataList(new ArrayList<>());
 
         if (useExcel)
         {
@@ -63,7 +64,7 @@ public class SalesTripTestData extends TestDataSource
      *
      * @return the test data list
      */
-    public ArrayList<SalesTrip> getTestDataList()
+    public List<SalesTrip> getTestDataList()
     {
         return this.testDataList;
     }
@@ -149,7 +150,7 @@ public class SalesTripTestData extends TestDataSource
 
         data = rowDataList.get(columnNumber);
         distance = poiDataValueToDouble(columnNumber, data);
-        columnNumber++;
+
 
         this.addExpenses(fromCity, toCity, duration, distance);
     }

@@ -101,7 +101,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
             value = (double) poiData.getValue();
         } else
         {
-            logger.error("column=" + columnNumber + "Invalid Data Type. Please enter Double.");
+            logger.error("column=" , columnNumber , "Invalid Data Type. Please enter Double.");
         }
         return value;
     }

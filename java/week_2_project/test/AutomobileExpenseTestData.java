@@ -4,6 +4,7 @@ import week_2_project.expense.*;
 import week_2_project.poi.PoiData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Automobile test data
@@ -138,7 +139,7 @@ public class AutomobileExpenseTestData extends TestDataSource
      *
      * @return the test data list
      */
-    public ArrayList<Expense> getTestDataList()
+    public List<Expense> getTestDataList()
     {
         return testDataList;
     }
@@ -225,7 +226,7 @@ public class AutomobileExpenseTestData extends TestDataSource
 
         data = rowDataList.get(columnNumber);
         fourTires = poiDataValueToDouble(columnNumber, data);
-        columnNumber++;
+
 
         this.addExpenses(name, purchasePrice, oilChange, gasPerUnit, fourTires);
 

@@ -20,12 +20,12 @@ public class ExpenseHelper
      *
      * @param tripDataTotal tripDataTotal the total length of the trip in mile
      * @param maxDuration   the maximum duration (time) that can be traveled
-     * @param FoodCost      the daily cost of food
+     * @param foodCost      the daily cost of food
      * @return the cost of food for the trip.
      */
-    public static double getFoodCosts(double tripDataTotal, double maxDuration, double FoodCost)
+    public static double getFoodCosts(double tripDataTotal, double maxDuration, double foodCost)
     {
-        return (((int) (tripDataTotal / maxDuration)) * FoodCost);
+        return (((int) (tripDataTotal / maxDuration)) * foodCost);
     }
 
     /**

@@ -6,6 +6,7 @@ import week_2_project.poi.PoiData;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 /**
  * Automobile test data
@@ -57,7 +58,7 @@ public class AutomobileTestData extends TestDataSource
                              double tireLife)
     {
         Automobile automobile = new Automobile(name);
-
+        automobile.setMpg(mpg);
         automobile.setFuelGauge(fuelCapacity, fuelCapacity);
         automobile.setOilGauge(oilChange, oilChange);
         automobile.setTireGauge(tireLife, tireLife);
@@ -83,7 +84,7 @@ public class AutomobileTestData extends TestDataSource
      *
      * @return the test data list
      */
-    public ArrayList<Automobile> getTestDataList()
+    public List<Automobile> getTestDataList()
     {
         return this.testDataList;
     }
