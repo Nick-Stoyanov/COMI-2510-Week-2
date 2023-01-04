@@ -74,6 +74,7 @@ public class TotalExpenseTest
      */
     private static String getDisplayResults(ArrayList<TotalExpense> totalExpenseList)
     {
+
         StringBuilder sb = new StringBuilder();
         Iterator<TotalExpense> i = totalExpenseList.iterator();
         TotalExpense total = null;
@@ -155,7 +156,7 @@ public class TotalExpenseTest
         logger.debug("\n\n grandTotalCost: " + grandTotal.toString());
 
         sb.append(TotalExpenseTest.formatString(grandTotal)).append("\n");
-       // writeResults(useExcel, totalExpenses, grandTotal);
+        // writeResults(useExcel, totalExpenses, grandTotal);
 
 
         return sb.toString();
@@ -209,7 +210,7 @@ public class TotalExpenseTest
 
         StringBuilder sb = new StringBuilder();
 
-        //totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
+        totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
 
         sb.append(gloriousArgs(args));
         sb.append(stageData(false));
@@ -217,14 +218,13 @@ public class TotalExpenseTest
 
         JOptionPane.showMessageDialog(null, sb.toString());
 
-        /*
+
         sb.setLength(0);
         sb.append(stageData(true));
 
         JOptionPane.showMessageDialog(null, sb.toString());
 
         totalExpenseWriteDataFile.writeFile();
-        */
 
 
     }

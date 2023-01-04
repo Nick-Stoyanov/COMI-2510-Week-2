@@ -76,7 +76,15 @@ public class AutomobileTestData extends TestDataSource
      */
     public Automobile getAutomobile(String name)
     {
-        return testDataList.get(0);
+        int index = 0;
+        for (int i = 0; i < testDataList.size(); i++)
+        {
+            if (name.equals(testDataList.get(i).getName()))
+            {
+                index = i;
+            }
+        }
+        return testDataList.get(index);
     }
 
     /**
@@ -122,6 +130,35 @@ public class AutomobileTestData extends TestDataSource
     @Override
     protected void handlePoiDataRowResults(ArrayList<PoiData> rowDataList)
     {
+        PoiData data = null;
+        int columnNumber = 0;
+
+        String name = null;
+        double mpg = 0.0;
+        double fuelCapacity = 0.0;
+        double oilChange = 0.0;
+        double tireLife = 0.0;
+
+        data = rowDataList.get(columnNumber);
+        name = poiDataValueToString(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        mpg = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        fuelCapacity = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        oilChange = poiDataValueToDouble(columnNumber, data);
+        columnNumber++;
+
+        data = rowDataList.get(columnNumber);
+        tireLife = poiDataValueToDouble(columnNumber, data);
+
+        this.addExpenses(name, mpg, fuelCapacity, oilChange, tireLife);
 
     }
 
