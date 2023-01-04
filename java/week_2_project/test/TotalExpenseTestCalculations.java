@@ -50,7 +50,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     public TotalExpenseTestCalculations()
     {
         super();
-        totalCostList = new ArrayList<>();
+
 
     }
 
@@ -83,9 +83,33 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public ArrayList<TotalExpense> calculateTotals()
     {
+        totalCostList = new ArrayList<>();
         for (int i = 0; i < automobileTestData.getTestDataList().size(); i++)
         {
-            TotalExpense expense = new TotalExpense(getAutomobileTestData().getTestDataList().get(i).getName());
+            String name = automobileTestData.getTestDataList().get(i).getName();
+            TotalExpense expense = new TotalExpense(name);
+
+            for (int j = 0; j < travelEntertainmentExpenseTestData.testDataList.size(); j++)
+            {
+                if (name.equals(travelEntertainmentExpenseTestData.getTestDataList().get(j).getFood().getName()))
+                {
+                    expense.addFoodCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
+                    expense.addHotelCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
+                }
+            }
+
+            for (int k = 0; k < automobileExpenseTestData.testDataList.size(); k++)
+            {
+                if (name.equals(automobileExpenseTestData.getTestDataList().get(k).getName()))
+                {
+                    expense.addFuelCost(automobileExpenseTestData.getFuelExpense(name).getExpense());
+                    expense.addOilChange(automobileExpenseTestData.getOilExpense(name).getExpense());
+                    expense.addFourTires(automobileExpenseTestData.getOilExpense(name).getExpense());
+                    expense.addPurchasePrice(automobileExpenseTestData.getPurchasePriceExpense(name).getExpense());
+                }
+            }
+
+
             totalCostList.add(expense);
 
         }

@@ -53,7 +53,7 @@ public class TotalExpenseTest
 
         NumberFormat format = NumberFormat.getCurrencyInstance();
 
-        sb.append("Car name=").append(totalExpense.getName()).append("\n\n");
+        sb.append("Name=").append(totalExpense.getName()).append("\n\n");
         sb.append("Purchase price=").append(format.format(totalExpense.getPurchasePrice())).append("\n\n");
         sb.append("Tires Cost=").append(format.format(totalExpense.getFourTires())).append("\n\n");
         sb.append("Oil Cost=").append(format.format(totalExpense.getOilChange())).append("\n\n");
@@ -154,8 +154,8 @@ public class TotalExpenseTest
 
         logger.debug("\n\n grandTotalCost: " + grandTotal.toString());
 
-        sb.append(TotalExpenseTest.formatString(grandTotal)).append("\n\n");
-        writeResults(useExcel, totalExpenses, grandTotal);
+        sb.append(TotalExpenseTest.formatString(grandTotal)).append("\n");
+       // writeResults(useExcel, totalExpenses, grandTotal);
 
 
         return sb.toString();
@@ -209,7 +209,7 @@ public class TotalExpenseTest
 
         StringBuilder sb = new StringBuilder();
 
-        totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
+        //totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
 
         sb.append(gloriousArgs(args));
         sb.append(stageData(false));

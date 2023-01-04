@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Nick
  */
-@SuppressWarnings("DuplicatedCode")
+
 public class AutomobileExpenseTestData extends TestDataSource
 {
 
