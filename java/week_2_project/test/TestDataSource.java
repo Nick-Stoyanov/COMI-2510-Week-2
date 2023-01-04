@@ -36,7 +36,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      *
      * @param useExcel set ot true to use Excel as the data source
      */
-    public TestDataSource(boolean useExcel)
+    protected TestDataSource(boolean useExcel)
     {
         this.useExcel = useExcel;
     }
@@ -125,7 +125,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
         {
             logger.error("column=" + columnNumber + "Invalid Data Type. Please enter String.");
         }
-        return null;
+        return value;
     }
 
 

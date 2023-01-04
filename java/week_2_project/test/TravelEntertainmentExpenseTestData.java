@@ -7,6 +7,7 @@ import week_2_project.expense.TravelEntertainmentExpense;
 import week_2_project.poi.PoiData;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Travel and entertainment expense test data
@@ -30,7 +31,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
         super(useExcel);
         this.setKey(UniqueKeyCounter.getInternalCounter());
 
-        this.setTestDataList(new ArrayList<TravelEntertainmentExpense>());
+        this.setTestDataList(new ArrayList<>());
 
         if (useExcel)
         {
@@ -65,7 +66,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      */
     public FoodExpense getFoodExpense(String name)
     {
-        String expenseName = name;
+
         FoodExpense fe = null;
         for (int i = 0; i < testDataList.size(); i++)
             if (name.equals(this.testDataList.get(i).getFood().getName()))
@@ -92,8 +93,6 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
                 he = this.testDataList.get(i).getHotel();
             }
         return he;
-
-
     }
 
 
@@ -102,7 +101,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
      *
      * @return the test data list
      */
-    public ArrayList<TravelEntertainmentExpense> getTestDataList()
+    public List<TravelEntertainmentExpense> getTestDataList()
     {
         return this.testDataList;
     }
@@ -146,7 +145,6 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
 
         data = rowDataList.get(columnNumber);
         foodExpense = poiDataValueToDouble(columnNumber, data);
-        columnNumber++;
 
         this.addExpenses(name, hotelExpense, foodExpense);
 

@@ -98,8 +98,6 @@ public class TotalExpenseTest
         StringBuilder sb = new StringBuilder();
         sb.append("____________________");
         sb.append("\n");
-        sb.append("____________________");
-        sb.append("\n\n");
 
         if (args.length == 0)
         {
@@ -114,9 +112,7 @@ public class TotalExpenseTest
         }
 
         sb.append("____________________");
-        sb.append("\n");
-        sb.append("____________________");
-        sb.append("\n\n\n\n");
+        sb.append("\n\n");
 
         return sb.toString();
     }
@@ -143,12 +139,13 @@ public class TotalExpenseTest
         logger.debug("salesTripTestData" + salesTripTestData.toString());
         logger.debug("automobileExpenseTestData: " + automobileExpenseTestData.toString());
 
+
         totalExpenseTestCalculations.setAutomobileTestData(automobileTestData);
         totalExpenseTestCalculations.setAutomobileExpenseTestData(automobileExpenseTestData);
         totalExpenseTestCalculations.setSalesTripTestData(salesTripTestData);
         totalExpenseTestCalculations.setTravelEntertainmentExpenseData(travelEntertainmentExpenseTestData);
 
-        ArrayList<TotalExpense> totalExpenses = totalExpenseTestCalculations.calculateTotals();
+        ArrayList<TotalExpense> totalExpenses = (ArrayList<TotalExpense>) totalExpenseTestCalculations.calculateTotals();
         totalExpenseTestCalculations.setTotalCostList(totalExpenses);
 
         sb.append(TotalExpenseTest.getDisplayResults(totalExpenses));
@@ -187,7 +184,7 @@ public class TotalExpenseTest
             name = WORKSHEET_NAME_FIXED;
         }
 
-        totalExpenseWriteDataFile.setDataList(new ArrayList<ArrayList<Object>>());
+        totalExpenseWriteDataFile.setDataList(new ArrayList<>());
         totalExpenseWriteDataFile.addTotalExpenseHeading();
         i = totalCostList.iterator();
 
@@ -195,9 +192,9 @@ public class TotalExpenseTest
         {
             totalCost = i.next();
             totalExpenseWriteDataFile.addTotalExpense(totalCost);
-            totalExpenseWriteDataFile.addWorksheet(name);
-
         }
+        totalExpenseWriteDataFile.addTotalExpense(grandTotalCost);
+        totalExpenseWriteDataFile.addWorksheet(name);
     }
 
 

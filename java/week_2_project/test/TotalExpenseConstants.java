@@ -36,8 +36,9 @@ public class TotalExpenseConstants
     /**
      * Default constructor
      */
-    public TotalExpenseConstants()
+    protected TotalExpenseConstants()
     {
+        super();
     }
 
     /**

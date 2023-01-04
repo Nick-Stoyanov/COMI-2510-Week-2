@@ -4,6 +4,7 @@ import week_2_project.expense.TotalExpense;
 import week_2_project.poi.PoiWriteDataList;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Writes the total expense excel data file
@@ -57,7 +58,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
      *
      * @param dataList the dataList to set
      */
-    public void setDataList(ArrayList<ArrayList<Object>> dataList)
+    public void setDataList(List<ArrayList<Object>> dataList)
     {
 
     }

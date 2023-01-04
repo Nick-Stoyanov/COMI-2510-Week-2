@@ -61,12 +61,16 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
      */
     public TotalExpense calculateGrandTotals()
     {
-        double total = 0.0;
+
         TotalExpense totalExpense = new TotalExpense("Grand Total");
         for (int i = 0; i < totalCostList.size(); i++)
         {
-            total += totalCostList.get(i).getGrandTotalCost();
-
+            totalExpense.addFoodCost(totalCostList.get(i).getFoodCost());
+            totalExpense.addHotelCost(totalCostList.get(i).getHotelCost());
+            totalExpense.addFuelCost(totalCostList.get(i).getFuelCost());
+            totalExpense.addOilChange(totalCostList.get(i).getOilChange());
+            totalExpense.addFourTires(totalCostList.get(i).getFourTires());
+            totalExpense.addPurchasePrice(totalCostList.get(i).getPurchasePrice());
         }
 
         return totalExpense;
@@ -81,7 +85,7 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     {
         for (int i = 0; i < automobileTestData.getTestDataList().size(); i++)
         {
-            TotalExpense expense = new TotalExpense(automobileTestData.getTestDataList().get(i).getName());
+            TotalExpense expense = new TotalExpense(getAutomobileTestData().getTestDataList().get(i).getName());
             totalCostList.add(expense);
 
         }
