@@ -93,8 +93,8 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
             {
                 if (name.equals(travelEntertainmentExpenseTestData.getTestDataList().get(j).getFood().getName()))
                 {
-                    expense.addFoodCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
-                    expense.addHotelCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
+                    expense.setFoodCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
+                    expense.setHotelCost(travelEntertainmentExpenseTestData.getFoodExpense(name).getExpense());
                 }
             }
 

@@ -191,7 +191,7 @@ public class TotalExpense extends UniqueKeyCounter
      *
      * @param hotelCost the hotelCost to set
      */
-    private void setHotelCost(double hotelCost)
+    public void setHotelCost(double hotelCost)
     {
         this.hotelCost = hotelCost;
     }

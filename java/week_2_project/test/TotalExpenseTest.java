@@ -210,7 +210,7 @@ public class TotalExpenseTest
 
         StringBuilder sb = new StringBuilder();
 
-        totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
+        //totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
 
         sb.append(gloriousArgs(args));
         sb.append(stageData(false));
@@ -219,13 +219,14 @@ public class TotalExpenseTest
         JOptionPane.showMessageDialog(null, sb.toString());
 
 
+        /*
         sb.setLength(0);
         sb.append(stageData(true));
 
         JOptionPane.showMessageDialog(null, sb.toString());
 
         totalExpenseWriteDataFile.writeFile();
-
+        */
 
     }
 }
