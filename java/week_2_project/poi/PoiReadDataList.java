@@ -46,45 +46,8 @@ public class PoiReadDataList
     {
 
         testDataList = new ArrayList<>();
-        try
-        {
-            FileInputStream excelFile = new FileInputStream(fileName);
-            @SuppressWarnings("resource")
-            Workbook workbook = new XSSFWorkbook(excelFile);
+        getExcelData(fileName,worksheet);
 
-            // worksheets are numbered starting at 0
-            Sheet datatypeSheet = workbook.getSheetAt(worksheet);
-
-            for (Row currentRow : datatypeSheet)
-            {
-                logger.debug("--Row Begin--");
-                for (Cell currentCell : currentRow)
-                {
-                    if (currentCell.getCellType() == CellType.STRING)
-                    {
-                        logger.debug("\tCellType.STRING=" + currentCell.getStringCellValue());
-                        testDataList.add((ArrayList<PoiData>) currentCell);
-                    } else if (currentCell.getCellType() == CellType.NUMERIC)
-                    {
-                        logger.debug("\tCellType.NUMERIC=" + currentCell.getNumericCellValue());
-                    } else
-                    {
-                        logger.error("\tCellType._NONE=");
-                    }
-                } // end while for cols
-                logger.debug("--Row End--");
-            }
-
-        } catch (FileNotFoundException e)
-        {
-
-            e.printStackTrace();
-            logger.error(ExceptionUtils.getStackTrace(e));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            logger.error(ExceptionUtils.getStackTrace(e));
-        }
     }
 
 
@@ -101,7 +64,8 @@ public class PoiReadDataList
                              int col,
                              double cellValue)
     {
-
+        PoiData poi = new PoiData(col, row, cellValue);
+        rowDataList.add(poi);
     }
 
     /**
@@ -117,6 +81,8 @@ public class PoiReadDataList
                              int col,
                              String cellValue)
     {
+        PoiData poi = new PoiData(col, row, cellValue);
+        rowDataList.add(poi);
 
     }
 
@@ -129,7 +95,55 @@ public class PoiReadDataList
     private void getExcelData(String fileName,
                               int worksheet)
     {
+        try
+        {
+            FileInputStream excelFile = new FileInputStream(fileName);
+            @SuppressWarnings("resource")
+            Workbook workbook = new XSSFWorkbook(excelFile);
 
+            // worksheets are numbered starting at 0
+            Sheet datatypeSheet = workbook.getSheetAt(worksheet);
+
+            for (int row=0; row<datatypeSheet.getPhysicalNumberOfRows(); row++)
+            //for (Row currentRow : datatypeSheet)
+            {
+                System.out.println("Number of rows test " + datatypeSheet.getPhysicalNumberOfRows());
+
+                logger.debug("--Row Begin--");
+                for (int column=0; column<datatypeSheet.getRow(column).getLastCellNum();column++)
+                //for (Cell currentCell : currentRow)
+                {
+
+                    if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.STRING)
+                    {
+                        logger.debug("\tCellType.STRING=" + datatypeSheet.getRow(row).getCell(column).getStringCellValue());
+                        addCellData(testDataList.get(row), datatypeSheet.getRow(row).getRowNum(), testDataList.get(row).get(column).getColumnNumber(), testDataList.get(row).get(column).getValue().toString());
+
+
+                    } else if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.NUMERIC)
+                    {
+                        logger.debug("\tCellType.NUMERIC=" + datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
+                        addCellData(testDataList.get(row), datatypeSheet.getRow(row).getRowNum(), testDataList.get(row).get(column).getColumnNumber(), (Double) testDataList.get(row).get(column).getValue());
+                    } else
+                    {
+                        logger.error("\tCellType._NONE=");
+                    }
+
+
+                } // end while for cols
+                logger.debug("--Row End--");
+            }
+
+        } catch (FileNotFoundException e)
+        {
+
+            e.printStackTrace();
+            logger.error(ExceptionUtils.getStackTrace(e));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            logger.error(ExceptionUtils.getStackTrace(e));
+        }
     }
 
     /**
@@ -178,6 +192,7 @@ public class PoiReadDataList
      */
     private void setMaxColumns(int maxColumns)
     {
+
         this.maxColumns = maxColumns;
     }
 
