@@ -24,7 +24,7 @@ public abstract class UniqueKeyCounter
     protected UniqueKeyCounter()
     {
         int tot = this.getKey() + 1;
-        this.setKey(tot);
+        this.setInternalCounter(tot);
 
     }
 

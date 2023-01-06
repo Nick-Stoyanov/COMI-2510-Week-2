@@ -1,8 +1,14 @@
 package week_2_project.poi;
 
+import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -24,10 +30,11 @@ public class PoiReadDataList
      * The maximum number of rows
      */
     private int maxRows;
+
     /**
      * The data list
      */
-    private ArrayList<ArrayList<PoiData>> testDataList = new ArrayList<>();
+    private ArrayList<ArrayList<PoiData>> testDataList;
 
     /**
      * Constructor
@@ -38,7 +45,48 @@ public class PoiReadDataList
     public PoiReadDataList(String fileName, int worksheet)
     {
 
+        testDataList = new ArrayList<>();
+        try
+        {
+            FileInputStream excelFile = new FileInputStream(fileName);
+            @SuppressWarnings("resource")
+            Workbook workbook = new XSSFWorkbook(excelFile);
+
+            // worksheets are numbered starting at 0
+            Sheet datatypeSheet = workbook.getSheetAt(worksheet);
+
+            for (Row currentRow : datatypeSheet)
+            {
+                logger.debug("--Row Begin--");
+                for (Cell currentCell : currentRow)
+                {
+                    if (currentCell.getCellType() == CellType.STRING)
+                    {
+                        logger.debug("\tCellType.STRING=" + currentCell.getStringCellValue());
+                        testDataList.add((ArrayList<PoiData>) currentCell);
+                    } else if (currentCell.getCellType() == CellType.NUMERIC)
+                    {
+                        logger.debug("\tCellType.NUMERIC=" + currentCell.getNumericCellValue());
+                    } else
+                    {
+                        logger.error("\tCellType._NONE=");
+                    }
+                } // end while for cols
+                logger.debug("--Row End--");
+            }
+
+        } catch (FileNotFoundException e)
+        {
+
+            e.printStackTrace();
+            logger.error(ExceptionUtils.getStackTrace(e));
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+            logger.error(ExceptionUtils.getStackTrace(e));
+        }
     }
+
 
     /**
      * This is an overloaded method that adds the value to the list

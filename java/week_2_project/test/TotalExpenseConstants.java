@@ -18,20 +18,20 @@ public class TotalExpenseConstants
      * output file name prefix
      * output file name is 3 components path + prefix + suffix
      */
-    private static final String OUTPUT_FILE_NAME_PREFIX = null;
+    private static final String OUTPUT_FILE_NAME_PREFIX = "Output";
 
     /**
      * output file name suffix
      * output file name is 3 components path + prefix + suffix
      */
-    private static final String OUTPUT_FILE_NAME_SUFFIX = null;
+    private static final String OUTPUT_FILE_NAME_SUFFIX = ".xlsx";
 
 
     /**
      * output file name path
      * output file name is 3 components path + prefix + suffix
      */
-    private static final String OUTPUT_FILE_PATH = null;
+    private static final String OUTPUT_FILE_PATH = "src/main/resources/in";
 
     /**
      * Default constructor

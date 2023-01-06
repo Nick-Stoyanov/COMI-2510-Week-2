@@ -157,8 +157,6 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
                 gaugeList.get(i).setCurrentAmount(currentAmount);
             }
         }
-
-
     }
 
     /**

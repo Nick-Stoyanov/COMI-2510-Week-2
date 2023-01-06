@@ -51,6 +51,8 @@ public class TotalExpenseTestCalculations extends UniqueKeyCounter
     {
         super();
 
+        this.key = super.getInternalCounter();
+
 
     }
 
