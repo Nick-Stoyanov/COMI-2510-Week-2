@@ -3,7 +3,9 @@ package week_2_project.poi;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -46,7 +48,7 @@ public class PoiReadDataList
     {
 
         testDataList = new ArrayList<>();
-        getExcelData(fileName,worksheet);
+        getExcelData(fileName, worksheet);
 
     }
 
@@ -82,7 +84,7 @@ public class PoiReadDataList
                              String cellValue)
     {
         PoiData poi = new PoiData(col, row, cellValue);
-        rowDataList.add(poi);
+
 
     }
 
@@ -104,33 +106,32 @@ public class PoiReadDataList
             // worksheets are numbered starting at 0
             Sheet datatypeSheet = workbook.getSheetAt(worksheet);
 
-            for (int row=0; row<datatypeSheet.getPhysicalNumberOfRows(); row++)
-            //for (Row currentRow : datatypeSheet)
+            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows(); row++)
+
             {
+                ArrayList<PoiData> poi = new ArrayList<>();
                 System.out.println("Number of rows test " + datatypeSheet.getPhysicalNumberOfRows());
 
                 logger.debug("--Row Begin--");
-                for (int column=0; column<datatypeSheet.getRow(column).getLastCellNum();column++)
-                //for (Cell currentCell : currentRow)
+                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum(); column++)
+
                 {
+                    System.out.println("Number of columns test " + datatypeSheet.getRow(column).getLastCellNum());
 
                     if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.STRING)
                     {
+                        PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getStringCellValue());
                         logger.debug("\tCellType.STRING=" + datatypeSheet.getRow(row).getCell(column).getStringCellValue());
-                        addCellData(testDataList.get(row), datatypeSheet.getRow(row).getRowNum(), testDataList.get(row).get(column).getColumnNumber(), testDataList.get(row).get(column).getValue().toString());
-
+                        poi.add(poiData);
 
                     } else if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.NUMERIC)
                     {
+                        PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
                         logger.debug("\tCellType.NUMERIC=" + datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
-                        addCellData(testDataList.get(row), datatypeSheet.getRow(row).getRowNum(), testDataList.get(row).get(column).getColumnNumber(), (Double) testDataList.get(row).get(column).getValue());
-                    } else
-                    {
-                        logger.error("\tCellType._NONE=");
+                        poi.add(poiData);
                     }
-
-
                 } // end while for cols
+                testDataList.add(poi);
                 logger.debug("--Row End--");
             }
 
