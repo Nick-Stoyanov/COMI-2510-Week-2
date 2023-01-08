@@ -23,8 +23,8 @@ public abstract class UniqueKeyCounter
      */
     protected UniqueKeyCounter()
     {
-        int tot = this.getKey() + 1;
-        this.setInternalCounter(tot);
+        int total = this.getKey() + 1;
+        this.setInternalCounter(total);
 
     }
 
