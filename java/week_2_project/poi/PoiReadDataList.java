@@ -46,7 +46,7 @@ public class PoiReadDataList
      */
     public PoiReadDataList(String fileName, int worksheet)
     {
-
+        super();
         testDataList = new ArrayList<>();
         getExcelData(fileName, worksheet);
 
@@ -84,6 +84,7 @@ public class PoiReadDataList
                              String cellValue)
     {
         PoiData poi = new PoiData(col, row, cellValue);
+        rowDataList.add(poi);
 
 
     }
@@ -106,14 +107,14 @@ public class PoiReadDataList
             // worksheets are numbered starting at 0
             Sheet datatypeSheet = workbook.getSheetAt(worksheet);
 
-            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows(); row++)
+            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows() -1; row++)
 
             {
                 ArrayList<PoiData> poi = new ArrayList<>();
                 System.out.println("Number of rows test " + datatypeSheet.getPhysicalNumberOfRows());
 
                 logger.debug("--Row Begin--");
-                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum(); column++)
+                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum() -1; column++)
 
                 {
                     System.out.println("Number of columns test " + datatypeSheet.getRow(column).getLastCellNum());
@@ -124,7 +125,8 @@ public class PoiReadDataList
                         logger.debug("\tCellType.STRING=" + datatypeSheet.getRow(row).getCell(column).getStringCellValue());
                         poi.add(poiData);
 
-                    } else if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.NUMERIC)
+                    }
+                    else
                     {
                         PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
                         logger.debug("\tCellType.NUMERIC=" + datatypeSheet.getRow(row).getCell(column).getNumericCellValue());

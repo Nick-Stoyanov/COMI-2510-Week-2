@@ -157,8 +157,6 @@ public class TotalExpenseTest
 
         sb.append(TotalExpenseTest.formatString(grandTotal)).append("\n");
         writeResults(useExcel, totalExpenses, grandTotal);
-
-
         return sb.toString();
     }
 
@@ -169,9 +167,7 @@ public class TotalExpenseTest
      * @param totalCostList  the total cost list
      * @param grandTotalCost the grand total cost
      */
-    private static void writeResults(boolean useExcel,
-                                     ArrayList<TotalExpense> totalCostList,
-                                     TotalExpense grandTotalCost)
+    private static void writeResults(boolean useExcel, ArrayList<TotalExpense> totalCostList, TotalExpense grandTotalCost)
     {
         Iterator<TotalExpense> i = null;
         TotalExpense totalCost = null;
@@ -206,27 +202,16 @@ public class TotalExpenseTest
      */
     public static void main(String[] args)
     {
-
-
         StringBuilder sb = new StringBuilder();
-
         totalExpenseWriteDataFile = new TotalExpenseWriteDataFile();
 
         sb.append(gloriousArgs(args));
         sb.append(stageData(false));
-
-
         JOptionPane.showMessageDialog(null, sb.toString());
-
-
 
         sb.setLength(0);
         sb.append(stageData(true));
-
         JOptionPane.showMessageDialog(null, sb.toString());
-
         totalExpenseWriteDataFile.writeFile();
-
-
     }
 }
