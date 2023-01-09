@@ -102,7 +102,7 @@ public class PoiReadDataList
         {
             FileInputStream excelFile = new FileInputStream(fileName);
             @SuppressWarnings("resource")
-            Workbook workbook = new XSSFWorkbook(excelFile);
+             Workbook workbook = new XSSFWorkbook(excelFile);
 
             // worksheets are numbered starting at 0
             Sheet datatypeSheet = workbook.getSheetAt(worksheet);

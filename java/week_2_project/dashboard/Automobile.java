@@ -18,6 +18,10 @@ import java.util.ArrayList;
  */
 public class Automobile extends UniqueKeyCounter implements Dashboard
 {
+    /**
+     * Sets mpg
+     * @param mpg mpg
+     */
     public void setMpg(double mpg)
     {
 
