@@ -29,9 +29,9 @@ public class PoiData
      */
     public PoiData(int columnNumber, int rowNumber, double cellDouble)
     {
-        this.columnNumber = columnNumber;
-        this.rowNumber = rowNumber;
-        this.value = cellDouble;
+        this.setColumnNumber(columnNumber);
+        this.setRowNumber(rowNumber);
+        this.setValue(cellDouble);
     }
 
     /**
@@ -43,9 +43,9 @@ public class PoiData
      */
     public PoiData(int columnNumber, int rowNumber, String cellString)
     {
-        this.columnNumber = columnNumber;
-        this.rowNumber = rowNumber;
-        this.value = cellString;
+        this.setColumnNumber(columnNumber);
+        this.setRowNumber(rowNumber);
+        this.setValue(cellString);
     }
 
 
@@ -96,7 +96,7 @@ public class PoiData
      */
     public Object getValue()
     {
-        return this.value;
+        return value;
     }
 
     /**

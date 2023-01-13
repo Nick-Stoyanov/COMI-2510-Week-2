@@ -20,6 +20,7 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
 {
     /**
      * Sets mpg
+     *
      * @param mpg mpg
      */
     public void setMpg(double mpg)
@@ -55,13 +56,11 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     {
 
         super();
-
-        int tot = this.getKey() + 1;
-        this.setKey(tot);
-
-        this.name = name;
+        this.setKey(UniqueKeyCounter.getInternalCounter());
+        this.setName(name);
 
         gaugeList = new ArrayList<>();
+
         FuelGauge fuelGauge = new FuelGauge();
         gaugeList.add(fuelGauge);
 

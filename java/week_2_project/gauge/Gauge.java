@@ -28,8 +28,7 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
     protected Gauge()
     {
         super();
-        int tot = this.getKey() + 1;
-        this.setKey(tot);
+        this.setKey(UniqueKeyCounter.getInternalCounter());
     }
 
     /**
@@ -41,7 +40,7 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
      */
     public double getCurrentAmount()
     {
-        return this.currentAmount;
+        return currentAmount;
     }
 
     /**
@@ -85,7 +84,7 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
      */
     public double getMaximumAmount()
     {
-        return this.maximumAmount;
+        return maximumAmount;
     }
 
     /**

@@ -8,6 +8,7 @@ import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class PoiReadDataList
     public PoiReadDataList(String fileName, int worksheet)
     {
         super();
-        testDataList = new ArrayList<>();
+        this.setTestDataList(new ArrayList<ArrayList<PoiData>>());
         getExcelData(fileName, worksheet);
 
     }
@@ -100,40 +101,41 @@ public class PoiReadDataList
     {
         try
         {
-            FileInputStream excelFile = new FileInputStream(fileName);
+            ArrayList<PoiData> poi = null;
+            FileInputStream excelFile = new FileInputStream(new File(fileName));
             @SuppressWarnings("resource")
-             Workbook workbook = new XSSFWorkbook(excelFile);
+            Workbook workbook = new XSSFWorkbook(excelFile);
 
             // worksheets are numbered starting at 0
             Sheet datatypeSheet = workbook.getSheetAt(worksheet);
+            this.setMaxRows(datatypeSheet.getPhysicalNumberOfRows());
+            this.setMaxColumns(datatypeSheet.getRow(1).getLastCellNum());
 
-            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows() -1; row++)
+            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows() - 1; row++)
 
             {
-                ArrayList<PoiData> poi = new ArrayList<>();
-                System.out.println("Number of rows test " + datatypeSheet.getPhysicalNumberOfRows());
+                poi = new ArrayList<>();
 
                 logger.debug("--Row Begin--");
-                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum() -1; column++)
+                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum() - 1; column++)
 
                 {
-                    System.out.println("Number of columns test " + datatypeSheet.getRow(column).getLastCellNum());
-
                     if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.STRING)
                     {
                         PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getStringCellValue());
                         logger.debug("\tCellType.STRING=" + datatypeSheet.getRow(row).getCell(column).getStringCellValue());
                         poi.add(poiData);
 
-                    }
-                    else
+                    } else
                     {
                         PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
                         logger.debug("\tCellType.NUMERIC=" + datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
                         poi.add(poiData);
                     }
+
                 } // end while for cols
-                testDataList.add(poi);
+                this.getTestDataList().add(poi);
+
                 logger.debug("--Row End--");
             }
 
@@ -173,7 +175,33 @@ public class PoiReadDataList
     public ArrayList<ArrayList<PoiData>> getTransposedTestDataList()
     {
 
-        return testDataList;
+        ArrayList<ArrayList<PoiData>> transposedTestDataList = new ArrayList<>();
+        ArrayList<PoiData> transposedRowDataList = null;
+
+        ArrayList<PoiData> rowDataList = null;
+        PoiData poiData = null;
+
+        for (int k = 0; k < this.getMaxColumns(); k++)
+        {
+            transposedTestDataList.add(new ArrayList<PoiData>());
+        }
+        int j = 0;
+        for (int k = 0; k < this.getMaxColumns(); k++)
+        {
+            transposedRowDataList = transposedTestDataList.get(k);
+
+            for (int i = 0; i < (this.getTestDataList().size()); i++)
+            {
+                rowDataList = this.getTestDataList().get(i);
+
+                poiData = rowDataList.get(j);
+                transposedRowDataList.add(poiData);
+            }
+            j++;
+        }
+
+
+        return transposedTestDataList;
 
     }
 
