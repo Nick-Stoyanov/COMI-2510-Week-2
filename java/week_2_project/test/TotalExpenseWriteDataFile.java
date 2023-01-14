@@ -4,7 +4,6 @@ import week_2_project.expense.TotalExpense;
 import week_2_project.poi.PoiWriteDataList;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Writes the total expense excel data file
@@ -14,10 +13,16 @@ import java.util.List;
 public class TotalExpenseWriteDataFile extends PoiWriteDataList
 {
     /**
+     * Data list
+     */
+    protected ArrayList<ArrayList<Object>> dataList;
+
+    /**
      * Default constructor
      */
     public TotalExpenseWriteDataFile()
     {
+        super();
     }
 
     /**
@@ -27,6 +32,18 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
      */
     public void addTotalExpense(TotalExpense totalExpense)
     {
+        ArrayList<Object> data = new ArrayList<>();
+
+        data.add(totalExpense.getName());
+        data.add(totalExpense.getPurchasePrice());
+        data.add(totalExpense.getFourTires());
+        data.add(totalExpense.getOilChange());
+        data.add(totalExpense.getFuelCost());
+        data.add(totalExpense.getHotelCost());
+        data.add(totalExpense.getFoodCost());
+        data.add(totalExpense.getGrandTotalCost());
+
+        this.getDataList().add(data);
 
     }
 
@@ -36,6 +53,19 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
      */
     public void addTotalExpenseHeading()
     {
+        this.setDataList(new ArrayList<ArrayList<Object>>());
+        ArrayList<Object> expense = new ArrayList<>();
+
+        expense.add("Name:");
+        expense.add("Purchase price:");
+        expense.add("Tires Cost:");
+        expense.add("Oil Price");
+        expense.add("Fuel:");
+        expense.add("Hotel:");
+        expense.add("Food");
+        expense.add("Grand total:");
+
+        this.getDataList().add(expense);
 
     }
 
@@ -50,7 +80,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
     @Override
     public ArrayList<ArrayList<Object>> getDataList()
     {
-        return null;
+        return dataList;
     }
 
     /**
@@ -58,9 +88,9 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
      *
      * @param dataList the dataList to set
      */
-    public void setDataList(List<ArrayList<Object>> dataList)
+    public void setDataList(ArrayList<ArrayList<Object>> dataList)
     {
-
+        this.dataList = dataList;
     }
 
     /**
@@ -71,7 +101,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
     @Override
     protected String getFileNamePrefix()
     {
-        return null;
+        return TotalExpenseConstants.getOutputFileNamePrefix();
     }
 
     /**
@@ -82,7 +112,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
     @Override
     protected String getFileNameSuffix()
     {
-        return null;
+        return TotalExpenseConstants.getOutputFileNameSuffix();
     }
 
     /**
@@ -93,7 +123,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
     @Override
     protected String getFilePath()
     {
-        return null;
+        return TotalExpenseConstants.getOutputFilePath();
     }
 
     /**
