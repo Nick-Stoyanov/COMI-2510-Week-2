@@ -1,19 +1,11 @@
 package week_2_project.test;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import week_2_project.common.UniqueKeyCounter;
 import week_2_project.poi.PoiData;
 import week_2_project.poi.PoiReadDataList;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -62,58 +54,19 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     private void handlePoiDataResults(ArrayList<ArrayList<PoiData>> testDataList)
     {
-        /*
-        try
+        ArrayList<PoiData> rowDataList = null;
+        int start = 0;
+
+        if (skipFirstRow())
         {
-            stageWithExcelData();
-            FileInputStream excelFile = new FileInputStream(getFileName());
-            @SuppressWarnings("resource")
-            Workbook workbook = new XSSFWorkbook(excelFile);
-
-            // worksheets are numbered starting at 0
-            Sheet datatypeSheet = workbook.getSheetAt(getWorksheetNumber());
-
-            for (int row = 0; row <= datatypeSheet.getPhysicalNumberOfRows() - 1; row++)
-
-            {
-                ArrayList<PoiData> poi = new ArrayList<>();
-                System.out.println("Number of rows test " + datatypeSheet.getPhysicalNumberOfRows());
-
-                logger.debug("--Row Begin--");
-                for (int column = 0; column <= datatypeSheet.getRow(column).getLastCellNum() - 1; column++)
-
-                {
-                    System.out.println("Number of columns test " + datatypeSheet.getRow(column).getLastCellNum());
-
-                    if (datatypeSheet.getRow(row).getCell(column).getCellType() == CellType.STRING)
-                    {
-                        PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getStringCellValue());
-                        logger.debug("\tCellType.STRING=" + datatypeSheet.getRow(row).getCell(column).getStringCellValue());
-                        poi.add(poiData);
-
-                    } else
-                    {
-                        PoiData poiData = new PoiData(column, row, datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
-                        logger.debug("\tCellType.NUMERIC=" + datatypeSheet.getRow(row).getCell(column).getNumericCellValue());
-                        poi.add(poiData);
-                    }
-                } // end while for cols
-                testDataList.add(poi);
-                logger.debug("--Row End--");
-            }
-
-        } catch (FileNotFoundException e)
-        {
-
-            e.printStackTrace();
-            logger.error(ExceptionUtils.getStackTrace(e));
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-            logger.error(ExceptionUtils.getStackTrace(e));
+            start = 1;
         }
-    }
-    */
+
+        for (int i = start; i < (testDataList.size()); i++)
+        {
+            rowDataList = testDataList.get(i);
+            handlePoiDataRowResults(rowDataList);
+        }
     }
 
 
@@ -200,7 +153,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean skipFirstRow()
     {
-        return true;
+        return false;
     }
 
 

@@ -53,7 +53,6 @@ public class PoiReadDataList
 
     }
 
-
     /**
      * This is an overloaded method that adds the value to the list
      *
@@ -151,20 +150,6 @@ public class PoiReadDataList
         }
     }
 
-    /**
-     * Returns a string representation
-     *
-     * @return string representation
-     */
-    @Override
-    public String toString()
-    {
-        return "PoiReadDataList{" +
-                "maxColumns=" + maxColumns +
-                ", maxRows=" + maxRows +
-                ", testDataList=" + testDataList +
-                '}';
-    }
 
     /**
      * This method will transpose the in the list so that
@@ -199,8 +184,6 @@ public class PoiReadDataList
             }
             j++;
         }
-
-
         return transposedTestDataList;
 
     }
@@ -265,5 +248,20 @@ public class PoiReadDataList
     private void setTestDataList(ArrayList<ArrayList<PoiData>> testDataList)
     {
         this.testDataList = testDataList;
+    }
+
+    /**
+     * Returns a string representation
+     *
+     * @return string representation
+     */
+    @Override
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        sb.append(" this.getMaxRows()= ").append(this.getMaxRows());
+        sb.append(" this.getMaxColumns()= ").append(this.getMaxColumns());
+        sb.append(" this.getPoiDataList()= ").append(this.getTestDataList().toString());
+        return (sb.toString());
     }
 }

@@ -31,7 +31,6 @@ public class TravelEntertainmentExpense
         this.foodExpense = new FoodExpense(foodExpense, name);
         this.hotelExpense = new HotelExpense(hotelExpense, name);
 
-
     }
 
     /**
@@ -61,7 +60,7 @@ public class TravelEntertainmentExpense
      */
     public HotelExpense getHotel()
     {
-        return this.hotelExpense;
+        return hotelExpense;
     }
 
     /**
@@ -102,9 +101,12 @@ public class TravelEntertainmentExpense
     @Override
     public String toString()
     {
-        return "TravelEntertainmentExpense{" +
-                "foodExpense=" + foodExpense +
-                ", hotelExpense=" + hotelExpense +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getClass());
+        sb.append(" this.getHotel()=").append(this.getHotel().toString()).append("\n");
+        sb.append(" this.getFood()=").append(this.getFood().toString()).append("\n");
+
+        return sb.toString();
     }
 }

@@ -260,11 +260,14 @@ public class Automobile extends UniqueKeyCounter implements Dashboard
     @Override
     public String toString()
     {
-        return "Automobile{" +
-                "gaugeList=" + gaugeList +
-                ", mpg=" + mpg +
-                ", name='" + name + '\'' +
-                ", key=" + key +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getClass()).append("\n");
+        sb.append(" this.getKey()=").append(this.getKey()).append("\n");
+        sb.append(" this.getName()=").append(this.getName()).append("\n");
+        sb.append(" this.getMpg()=").append(this.getMpg()).append("\n");
+        sb.append(" this.getGaugeList()=").append(this.getGaugeList()).append("\n");
+
+        return sb.toString();
     }
 }

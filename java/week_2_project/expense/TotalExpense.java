@@ -49,9 +49,9 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public TotalExpense(String name)
     {
-        int tot = this.getKey() + 1;
-        this.setKey(tot);
-        this.name = name;
+        super();
+        this.setKey(UniqueKeyCounter.getInternalCounter());
+        this.setName(name);
     }
 
 
@@ -285,7 +285,8 @@ public class TotalExpense extends UniqueKeyCounter
      */
     public double getGrandTotalCost()
     {
-        return foodCost + fourTires + fuelCost + hotelCost + oilChange + purchasePrice;
+        return this.getPurchasePrice() + this.getFourTires() + this.getOilChange() + this.getFuelCost()
+                + this.getHotelCost() + this.getFoodCost();
     }
 
     /**
@@ -296,15 +297,18 @@ public class TotalExpense extends UniqueKeyCounter
     @Override
     public String toString()
     {
-        return "TotalExpense{" +
-                "foodCost=" + foodCost +
-                ", fourTires=" + fourTires +
-                ", fuelCost=" + fuelCost +
-                ", hotelCost=" + hotelCost +
-                ", key=" + key +
-                ", name='" + name + '\'' +
-                ", oilChange=" + oilChange +
-                ", purchasePrice=" + purchasePrice +
-                '}';
+        StringBuilder sb = new StringBuilder();
+
+        sb.append(this.getClass());
+        sb.append(" this.getName()=").append(this.getName()).append("\n");
+        sb.append(" this.getPurchasePrice()=").append(this.getPurchasePrice()).append("\n");
+        sb.append(" this.getFourTires()=").append(this.getFourTires()).append("\n");
+        sb.append(" this.getOilChange()=").append(this.getOilChange()).append("\n");
+        sb.append(" this.getFuelCost()=").append(this.getFuelCost()).append("\n");
+        sb.append(" this.getHotelCost()=").append(this.getHotelCost()).append("\n");
+        sb.append(" this.getFoodCost()=").append(this.getFoodCost()).append("\n");
+        sb.append(" this.getGrandTotalCost()=").append(this.getGrandTotalCost()).append("\n");
+
+        return sb.toString();
     }
 }

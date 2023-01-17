@@ -117,10 +117,11 @@ public class PoiData
     @Override
     public String toString()
     {
-        return "PoiData{" +
-                "columnNumber=" + columnNumber +
-                ", rowNumber=" + rowNumber +
-                ", value=" + value +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(" this.getRowNumber()= ").append(this.getRowNumber());
+        sb.append(" this.getColumnNumber()= ").append(this.getColumnNumber());
+        sb.append(" this.getValue()= ").append(this.getValue());
+        return (sb.toString());
+
     }
 }

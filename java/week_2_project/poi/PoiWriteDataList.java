@@ -22,8 +22,6 @@ import java.util.UUID;
  */
 public abstract class PoiWriteDataList
 {
-
-
     /**
      * Get an instance of the Logger
      */
@@ -167,7 +165,7 @@ public abstract class PoiWriteDataList
     protected abstract boolean useNameUnique();
 
     /**
-     * Write the worksheet to the excel file.
+     * Write the worksheet to the Excel file.
      */
     public void writeFile()
     {

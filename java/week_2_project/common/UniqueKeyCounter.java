@@ -15,7 +15,7 @@ public abstract class UniqueKeyCounter
     /**
      * Internal counter
      */
-    private static int internalCounter;
+    private static int internalCounter = 0;
 
 
     /**
@@ -23,9 +23,7 @@ public abstract class UniqueKeyCounter
      */
     protected UniqueKeyCounter()
     {
-        int total = this.getKey() + 1;
-        this.setInternalCounter(total);
-
+        UniqueKeyCounter.setInternalCounter(UniqueKeyCounter.getInternalCounter() + 1);
     }
 
     /**
