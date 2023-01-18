@@ -102,11 +102,9 @@ public class TravelEntertainmentExpense
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-
         sb.append(this.getClass());
         sb.append(" this.getHotel()=").append(this.getHotel().toString()).append("\n");
         sb.append(" this.getFood()=").append(this.getFood().toString()).append("\n");
-
         return sb.toString();
     }
 }

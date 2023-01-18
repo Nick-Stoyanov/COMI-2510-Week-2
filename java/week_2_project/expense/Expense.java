@@ -106,10 +106,12 @@ public abstract class Expense extends UniqueKeyCounter
     @Override
     public String toString()
     {
-        return "Expense{" +
-                "expense=" + expense +
-                ", key=" + key +
-                ", name='" + name + '\'' +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass());
+        sb.append(" this.getKey()= ").append(this.getKey()).append("\n");
+        sb.append(" this.getName()= ").append(this.getName()).append("\n");
+        sb.append(" this.getExpense()= ").append(this.getExpense()).append("\n");
+        sb.append(super.toString());
+        return sb.toString();
     }
 }

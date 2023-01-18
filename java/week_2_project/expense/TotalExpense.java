@@ -298,17 +298,15 @@ public class TotalExpense extends UniqueKeyCounter
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-
         sb.append(this.getClass());
-        sb.append(" this.getName()=").append(this.getName()).append("\n");
-        sb.append(" this.getPurchasePrice()=").append(this.getPurchasePrice()).append("\n");
-        sb.append(" this.getFourTires()=").append(this.getFourTires()).append("\n");
-        sb.append(" this.getOilChange()=").append(this.getOilChange()).append("\n");
-        sb.append(" this.getFuelCost()=").append(this.getFuelCost()).append("\n");
-        sb.append(" this.getHotelCost()=").append(this.getHotelCost()).append("\n");
-        sb.append(" this.getFoodCost()=").append(this.getFoodCost()).append("\n");
-        sb.append(" this.getGrandTotalCost()=").append(this.getGrandTotalCost()).append("\n");
-
+        sb.append(" this.getName()= ").append(this.getName()).append("\n");
+        sb.append(" this.getPurchasePrice()= ").append(this.getPurchasePrice()).append("\n");
+        sb.append(" this.getFourTires()= ").append(this.getFourTires()).append("\n");
+        sb.append(" this.getOilChange()= ").append(this.getOilChange()).append("\n");
+        sb.append(" this.getFuelCost()= ").append(this.getFuelCost()).append("\n");
+        sb.append(" this.getHotelCost()= ").append(this.getHotelCost()).append("\n");
+        sb.append(" this.getFoodCost()= ").append(this.getFoodCost()).append("\n");
+        sb.append(" this.getGrandTotalCost()= ").append(this.getGrandTotalCost()).append("\n");
         return sb.toString();
     }
 }
