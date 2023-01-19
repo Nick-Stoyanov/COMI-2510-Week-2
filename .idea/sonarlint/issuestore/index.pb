@@ -1,12 +1,8 @@
 
-G
-src/main/.gitattributes,7\6\760a6a83305fae4698acd5a0b8779cd7ccfc84eb
 l
 <src/main/java/week_2_project/test/TotalExpenseConstants.java,4\2\420380969d995f71e4f8afe3b5f2f93de2b58daf
 h
 8src/main/java/week_2_project/test/SalesTripTestData.java,d\7\d7211e754236623e84773730928f49f2731e3101
-e
-5src/main/java/week_2_project/dashboard/Dashboard.java,a\e\aeabcbbb47e09407a1dea05bff412bf1677ea5d4
 e
 5src/main/java/week_2_project/expense/FuelExpense.java,c\0\c024773d8fea72d003e377871a1db097e44b55d6
 f
