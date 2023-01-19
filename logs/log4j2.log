@@ -1,0 +1,99 @@
+2023-01-19 13:47:46,004 main DEBUG Apache Log4j Core 2.19.0 initializing configuration XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml]
+2023-01-19 13:47:46,008 main DEBUG PluginManager 'Core' found 130 plugins
+2023-01-19 13:47:46,009 main DEBUG PluginManager 'Level' found 0 plugins
+2023-01-19 13:47:46,012 main DEBUG PluginManager 'Lookup' found 16 plugins
+2023-01-19 13:47:46,014 main DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2023-01-19 13:47:46,023 main TRACE TypeConverterRegistry initializing.
+2023-01-19 13:47:46,024 main DEBUG PluginManager 'TypeConverter' found 26 plugins
+2023-01-19 13:47:46,045 main DEBUG PatternLayout$Builder(pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n", PatternSelector=null, Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Replace=null, charset="null", alwaysWriteExceptions="null", disableAnsi="null", noConsoleNoAnsi="null", header="null", footer="null")
+2023-01-19 13:47:46,045 main DEBUG PluginManager 'Converter' found 45 plugins
+2023-01-19 13:47:46,046 main DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.ConsoleAppender].
+2023-01-19 13:47:46,059 main DEBUG ConsoleAppender$Builder(target="SYSTEM_OUT", follow="null", direct="null", bufferedIo="null", bufferSize="null", immediateFlush="null", ignoreExceptions="null", PatternLayout(%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n), name="LogToConsole", Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Filter=null, ={})
+2023-01-19 13:47:46,063 main DEBUG Starting OutputStreamManager SYSTEM_OUT.false.false
+2023-01-19 13:47:46,064 main DEBUG Building Plugin[name=layout, class=org.apache.logging.log4j.core.layout.PatternLayout].
+2023-01-19 13:47:46,065 main DEBUG PatternLayout$Builder(pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n", PatternSelector=null, Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Replace=null, charset="null", alwaysWriteExceptions="null", disableAnsi="null", noConsoleNoAnsi="null", header="null", footer="null")
+2023-01-19 13:47:46,066 main DEBUG Building Plugin[name=appender, class=org.apache.logging.log4j.core.appender.FileAppender].
+2023-01-19 13:47:46,070 main DEBUG FileAppender$Builder(fileName="logs/app.log", append="null", locking="null", advertise="null", advertiseUri="null", createOnDemand="null", filePermissions="null", fileOwner="null", fileGroup="null", bufferedIo="null", bufferSize="null", immediateFlush="null", ignoreExceptions="null", PatternLayout(%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n), name="LogToFile", Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Filter=null, ={})
+2023-01-19 13:47:46,074 main DEBUG Starting FileManager logs/app.log
+2023-01-19 13:47:46,074 main DEBUG Building Plugin[name=appenders, class=org.apache.logging.log4j.core.config.AppendersPlugin].
+2023-01-19 13:47:46,076 main DEBUG createAppenders(={LogToConsole, LogToFile})
+2023-01-19 13:47:46,077 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2023-01-19 13:47:46,082 main DEBUG createAppenderRef(ref="LogToFile", level="ALL", Filter=null)
+2023-01-19 13:47:46,083 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2023-01-19 13:47:46,084 main DEBUG createAppenderRef(ref="LogToConsole", level="ERROR", Filter=null)
+2023-01-19 13:47:46,084 main DEBUG Building Plugin[name=logger, class=org.apache.logging.log4j.core.config.LoggerConfig].
+2023-01-19 13:47:46,089 main DEBUG LoggerConfig$Builder(additivity="false", level="TRACE", levelAndRefs="null", name="all", includeLocation="null", ={LogToFile, LogToConsole}, ={}, Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Filter=null)
+2023-01-19 13:47:46,091 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2023-01-19 13:47:46,092 main DEBUG createAppenderRef(ref="LogToFile", level="ALL", Filter=null)
+2023-01-19 13:47:46,093 main DEBUG Building Plugin[name=AppenderRef, class=org.apache.logging.log4j.core.config.AppenderRef].
+2023-01-19 13:47:46,093 main DEBUG createAppenderRef(ref="LogToConsole", level="DEBUG", Filter=null)
+2023-01-19 13:47:46,094 main DEBUG Building Plugin[name=root, class=org.apache.logging.log4j.core.config.LoggerConfig$RootLogger].
+2023-01-19 13:47:46,098 main DEBUG LoggerConfig$RootLogger$Builder(additivity="null", level="ALL", levelAndRefs="null", includeLocation="null", ={LogToFile, LogToConsole}, ={}, Configuration(C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml), Filter=null)
+2023-01-19 13:47:46,098 main DEBUG Building Plugin[name=loggers, class=org.apache.logging.log4j.core.config.LoggersPlugin].
+2023-01-19 13:47:46,101 main DEBUG createLoggers(={all, root})
+2023-01-19 13:47:46,102 main DEBUG Configuration XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml] initialized
+2023-01-19 13:47:46,102 main DEBUG Starting configuration XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml]
+2023-01-19 13:47:46,103 main DEBUG Started configuration XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml] OK.
+2023-01-19 13:47:46,104 main TRACE Stopping org.apache.logging.log4j.core.config.DefaultConfiguration@6c4906d3...
+2023-01-19 13:47:46,106 main TRACE DefaultConfiguration notified 1 ReliabilityStrategies that config will be stopped.
+2023-01-19 13:47:46,106 main TRACE DefaultConfiguration stopping root LoggerConfig.
+2023-01-19 13:47:46,106 main TRACE DefaultConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2023-01-19 13:47:46,107 main TRACE DefaultConfiguration stopping remaining Appenders.
+2023-01-19 13:47:46,108 main DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false-1
+2023-01-19 13:47:46,109 main DEBUG OutputStream closed
+2023-01-19 13:47:46,109 main DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false-1, all resources released: true
+2023-01-19 13:47:46,109 main DEBUG Appender DefaultConsole-1 stopped with status true
+2023-01-19 13:47:46,110 main TRACE DefaultConfiguration stopped 1 remaining Appenders.
+2023-01-19 13:47:46,110 main TRACE DefaultConfiguration cleaning Appenders from 1 LoggerConfigs.
+2023-01-19 13:47:46,111 main DEBUG Stopped org.apache.logging.log4j.core.config.DefaultConfiguration@6c4906d3 OK
+2023-01-19 13:47:46,214 main TRACE Reregistering MBeans after reconfigure. Selector=org.apache.logging.log4j.core.selector.ClassLoaderContextSelector@6399551e
+2023-01-19 13:47:46,214 main TRACE Reregistering context (1/1): '4d7e1886' org.apache.logging.log4j.core.LoggerContext@13d73fa
+2023-01-19 13:47:46,214 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886'
+2023-01-19 13:47:46,215 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=StatusLogger'
+2023-01-19 13:47:46,215 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=ContextSelector'
+2023-01-19 13:47:46,215 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=*'
+2023-01-19 13:47:46,216 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=Appenders,name=*'
+2023-01-19 13:47:46,216 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=AsyncAppenders,name=*'
+2023-01-19 13:47:46,216 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=AsyncLoggerRingBuffer'
+2023-01-19 13:47:46,217 main TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=*,subtype=RingBuffer'
+2023-01-19 13:47:46,218 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886
+2023-01-19 13:47:46,221 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=StatusLogger
+2023-01-19 13:47:46,224 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=ContextSelector
+2023-01-19 13:47:46,225 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=all
+2023-01-19 13:47:46,226 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=
+2023-01-19 13:47:46,227 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=Appenders,name=LogToConsole
+2023-01-19 13:47:46,228 main DEBUG Registering MBean org.apache.logging.log4j2:type=4d7e1886,component=Appenders,name=LogToFile
+2023-01-19 13:47:46,229 main TRACE Using default SystemClock for timestamps.
+2023-01-19 13:47:46,230 main DEBUG org.apache.logging.log4j.core.util.SystemClock supports precise timestamps.
+2023-01-19 13:47:46,230 main TRACE Using DummyNanoClock for nanosecond timestamps.
+2023-01-19 13:47:46,230 main DEBUG Reconfiguration complete for context[name=4d7e1886] at URI C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml (org.apache.logging.log4j.core.LoggerContext@13d73fa) with optional ClassLoader: null
+2023-01-19 13:47:46,230 main DEBUG Shutdown hook enabled. Registering a new one.
+2023-01-19 13:47:46,232 main DEBUG LoggerContext[name=4d7e1886, org.apache.logging.log4j.core.LoggerContext@13d73fa] started OK.
+2023-01-19 13:47:46,664 pool-1-thread-1 DEBUG Stopping LoggerContext[name=4d7e1886, org.apache.logging.log4j.core.LoggerContext@13d73fa]
+2023-01-19 13:47:46,665 pool-1-thread-1 DEBUG Stopping LoggerContext[name=4d7e1886, org.apache.logging.log4j.core.LoggerContext@13d73fa]...
+2023-01-19 13:47:46,665 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=4d7e1886]
+2023-01-19 13:47:46,665 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=4d7e1886,component=StatusLogger]
+2023-01-19 13:47:46,666 pool-1-thread-1 TRACE Unregistering 1 MBeans: [org.apache.logging.log4j2:type=4d7e1886,component=ContextSelector]
+2023-01-19 13:47:46,666 pool-1-thread-1 TRACE Unregistering 2 MBeans: [org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=all, org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=]
+2023-01-19 13:47:46,666 pool-1-thread-1 TRACE Unregistering 2 MBeans: [org.apache.logging.log4j2:type=4d7e1886,component=Appenders,name=LogToFile, org.apache.logging.log4j2:type=4d7e1886,component=Appenders,name=LogToConsole]
+2023-01-19 13:47:46,666 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=AsyncAppenders,name=*'
+2023-01-19 13:47:46,667 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=AsyncLoggerRingBuffer'
+2023-01-19 13:47:46,667 pool-1-thread-1 TRACE Unregistering but no MBeans found matching 'org.apache.logging.log4j2:type=4d7e1886,component=Loggers,name=*,subtype=RingBuffer'
+2023-01-19 13:47:46,668 pool-1-thread-1 TRACE Stopping XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml]...
+2023-01-19 13:47:46,668 pool-1-thread-1 TRACE XmlConfiguration notified 3 ReliabilityStrategies that config will be stopped.
+2023-01-19 13:47:46,668 pool-1-thread-1 TRACE XmlConfiguration stopping 2 LoggerConfigs.
+2023-01-19 13:47:46,668 pool-1-thread-1 TRACE XmlConfiguration stopping root LoggerConfig.
+2023-01-19 13:47:46,672 pool-1-thread-1 TRACE XmlConfiguration notifying ReliabilityStrategies that appenders will be stopped.
+2023-01-19 13:47:46,673 pool-1-thread-1 TRACE XmlConfiguration stopping remaining Appenders.
+2023-01-19 13:47:46,673 pool-1-thread-1 DEBUG Shutting down FileManager logs/app.log
+2023-01-19 13:47:46,677 pool-1-thread-1 DEBUG OutputStream closed
+2023-01-19 13:47:46,677 pool-1-thread-1 DEBUG Shut down FileManager logs/app.log, all resources released: true
+2023-01-19 13:47:46,678 pool-1-thread-1 DEBUG Appender LogToFile stopped with status true
+2023-01-19 13:47:46,678 pool-1-thread-1 DEBUG Shutting down OutputStreamManager SYSTEM_OUT.false.false
+2023-01-19 13:47:46,678 pool-1-thread-1 DEBUG OutputStream closed
+2023-01-19 13:47:46,678 pool-1-thread-1 DEBUG Shut down OutputStreamManager SYSTEM_OUT.false.false, all resources released: true
+2023-01-19 13:47:46,678 pool-1-thread-1 DEBUG Appender LogToConsole stopped with status true
+2023-01-19 13:47:46,679 pool-1-thread-1 TRACE XmlConfiguration stopped 2 remaining Appenders.
+2023-01-19 13:47:46,679 pool-1-thread-1 TRACE XmlConfiguration cleaning Appenders from 3 LoggerConfigs.
+2023-01-19 13:47:46,679 pool-1-thread-1 DEBUG Stopped XmlConfiguration[location=C:\Users\Nick\eclipse-workspace\COMI-2510-Week-2\target\classes\log4j2.xml] OK
+2023-01-19 13:47:46,679 pool-1-thread-1 DEBUG Stopped LoggerContext[name=4d7e1886, org.apache.logging.log4j.core.LoggerContext@13d73fa] with status true
