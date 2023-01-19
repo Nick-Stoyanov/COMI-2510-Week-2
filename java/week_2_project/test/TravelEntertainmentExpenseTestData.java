@@ -30,6 +30,7 @@ public class TravelEntertainmentExpenseTestData extends TestDataSource
     {
         super(useExcel);
         this.setKey(UniqueKeyCounter.getInternalCounter());
+        testDataList = new ArrayList<>();
 
         this.setTestDataList(new ArrayList<>());
 

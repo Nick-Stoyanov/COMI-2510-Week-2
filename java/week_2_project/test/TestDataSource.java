@@ -40,8 +40,6 @@ public abstract class TestDataSource extends UniqueKeyCounter
     {
         super();
         this.useExcel = useExcel;
-
-
     }
 
 
@@ -96,7 +94,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean needToTransposeExcelData()
     {
-        return false;
+        return true;
     }
 
 
@@ -153,7 +151,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
      */
     protected boolean skipFirstRow()
     {
-        return false;
+        return true;
     }
 
 

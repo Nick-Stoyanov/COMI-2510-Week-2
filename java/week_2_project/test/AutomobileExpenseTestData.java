@@ -198,7 +198,6 @@ public class AutomobileExpenseTestData extends TestDataSource
     protected void handlePoiDataRowResults(ArrayList<PoiData> rowDataList)
     {
 
-
         PoiData data = null;
         int columnNumber = 0;
 
