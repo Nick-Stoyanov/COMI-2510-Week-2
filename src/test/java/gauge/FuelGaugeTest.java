@@ -108,7 +108,7 @@ class FuelGaugeTest
     @Test
     void testToString()
      {
-        String expected = "class week_2_project.gauge.FuelGauge";
+        String expected = "class gauge.FuelGauge";
         logger.debug(expected);
         String actual = this.gauge.toString();
         logger.debug(actual);

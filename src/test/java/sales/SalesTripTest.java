@@ -150,7 +150,7 @@ class SalesTripTest
      */
     void testToString()
     {
-        String expected = "class week_2_project.sales.SalesTrip this.getFromCity()=from city name this.getDestinationCity()=destination city name this.getDistance()=1.0 this.getDuration()=1.0";
+        String expected = "class sales.SalesTrip this.getFromCity()=from city name this.getDestinationCity()=destination city name this.getDistance()=1.0 this.getDuration()=1.0";
         String actual = this.trip.toString();
         assertTrue(actual.contains(expected));
         logger.debug("@test test toString() " + "\nexpected " + expected + "\nactual " +  actual);

@@ -109,7 +109,7 @@ class TireGaugeTest
     @Test
     void testToString()
     {
-        String expected = "class week_2_project.gauge.TireGauge";
+        String expected = "class gauge.TireGauge";
         logger.debug(expected);
         String actual = this.gauge.toString();
         logger.debug(actual);

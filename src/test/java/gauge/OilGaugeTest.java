@@ -109,7 +109,7 @@ class OilGaugeTest
     @Test
     void testToString()
     {
-        String expected = "class week_2_project.gauge.OilGauge";
+        String expected = "class gauge.OilGauge";
         logger.debug(expected);
         String actual = this.gauge.toString();
         logger.debug(actual);
