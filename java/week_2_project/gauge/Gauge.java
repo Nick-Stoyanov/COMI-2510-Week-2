@@ -105,11 +105,12 @@ public abstract class Gauge extends UniqueKeyCounter implements GaugeAmounts
     @Override
     public String toString()
     {
-        return "Gauge{" +
-                "currentAmount=" + currentAmount +
-                ", key=" + key +
-                ", maximumAmount=" + maximumAmount +
-                '}';
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.getClass());
+        sb.append(" this.getKey()= ").append(this.getKey()).append("\n");
+        sb.append(" this.getMaximumAmount()= ").append(this.getMaximumAmount()).append("\n");
+        sb.append(" this.getCurrentAmount()= ").append(this.getCurrentAmount()).append("\n");
+        return sb.toString();
     }
 
 }
