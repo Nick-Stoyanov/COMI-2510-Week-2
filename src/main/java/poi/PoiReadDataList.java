@@ -170,6 +170,7 @@ public class PoiReadDataList
         {
             transposedTestDataList.add(new ArrayList<PoiData>());
         }
+
         int j = 0;
         for (int k = 0; k < this.getMaxColumns(); k++)
         {
