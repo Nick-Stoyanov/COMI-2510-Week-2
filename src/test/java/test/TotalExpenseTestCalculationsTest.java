@@ -51,6 +51,7 @@ class TotalExpenseTestCalculationsTest
         ArrayList<TotalExpense> list = new ArrayList<>();
         totalCalc.setTotalCostList(list);
         assertTrue(totalCalc.calculateGrandTotals()instanceof TotalExpense);
+        assertNotNull(totalCalc.calculateGrandTotals());
         logger.debug("@test CalculateGrandTotals(): " + totalCalc.calculateGrandTotals().toString());
     }
 
@@ -156,6 +157,11 @@ class TotalExpenseTestCalculationsTest
      */
     void setKey()
     {
+        int expected =123;
+        totalCalc.setKey(expected);
+        logger.debug("@test setKey() expected: " + expected);
+        assertEquals(expected,this.totalCalc.getKey());
+        logger.debug("@test setKey() actual: " + this.totalCalc.getKey());
     }
 
     @Test
