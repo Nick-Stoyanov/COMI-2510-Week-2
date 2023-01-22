@@ -107,6 +107,12 @@ class AutomobileExpenseTestDataTest
      */
     void testToString()
     {
+        String expected = "AutomobileExpenseTestData{testDataList=[class expense.PurchasePriceExpense this.getKey()=";
+        String actual = data.toString();
+        logger.debug("@test toString(): " + data.toString());
+
+        assertTrue(actual.contains(expected));
+        logger.debug("@test toString(): " + data.toString());
     }
 
     @Test
@@ -127,7 +133,7 @@ class AutomobileExpenseTestDataTest
     void handlePoiDataRowResults()
     {
         ArrayList<PoiData> poiList = new ArrayList<PoiData>();
-        PoiData poi = new PoiData(1,2,3);
+        PoiData poi = new PoiData(1, 2, 3);
     }
 
     @Test

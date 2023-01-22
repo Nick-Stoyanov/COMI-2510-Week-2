@@ -1,5 +1,7 @@
 package test;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import common.UniqueKeyCounter;
 import expense.FoodExpense;
 import expense.HotelExpense;
