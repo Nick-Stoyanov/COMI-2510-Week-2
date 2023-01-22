@@ -1,11 +1,15 @@
 package test;
 
 
+import expense.Expense;
+import expense.TotalExpense;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -40,9 +44,14 @@ class TotalExpenseTestCalculationsTest
     @Test
     /**
      * test for calculateGrandTotals
+     * should return a total expense
      */
     void calculateGrandTotals()
     {
+        ArrayList<TotalExpense> list = new ArrayList<>();
+        totalCalc.setTotalCostList(list);
+        assertTrue(totalCalc.calculateGrandTotals()instanceof TotalExpense);
+        logger.debug("@test CalculateGrandTotals(): " + totalCalc.calculateGrandTotals().toString());
     }
 
     @Test
