@@ -118,8 +118,6 @@ V
 &src/main/java/expense/TireExpense.java,4\9\490de3e72d30dfba2fd83ac044972e65451c7188
 R
 "src/main/java/gauge/FuelGauge.java,9\4\94e570cd11603d8584a32a886376b88d14867975
-e
-5src/main/java/expense/TravelEntertainmentExpense.java,2\0\2005c2acc195c79be00c6f78a28d89ab62137be9
 R
 "src/main/java/gauge/TireGauge.java,a\1\a1a7af81cff7f0210504ae31596f35df68b03975
 Q
@@ -160,8 +158,6 @@ V
 &src/test/java/expense/ExpenseTest.java,e\b\ebd9b992b2018ce7e6bf7126453a51949d2c1c9e
 V
 &src/test/java/sales/SalesTripTest.java,3\c\3c98a2174b835d100364c7fe468661993697a375
-V
-&src/test/java/gauge/TireGaugeTest.java,f\6\f64cc7e76d7f358835cf495233ca6e8fd92e6d71
 <
 logs/app.log,1\9\19551365d5d85d08cf06f31af46de9860d5f5240
 ?
@@ -170,8 +166,6 @@ S
 #.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 Z
 *src/test/java/poi/PoiReadDataListTest.java,2\7\2715c563e33b1422a7d67269eb325eb10a2cb2ae
-V
-&src/main/java/poi/PoiReadDataList.java,d\7\d7df5466307d9f9fdc29923b3de0e7db5ca55bf4
 N
 src/main/java/poi/PoiData.java,6\8\68ee9451aa34c3baf2d8227279b51af9d8c59ced
 [

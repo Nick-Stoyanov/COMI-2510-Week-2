@@ -1,5 +1,8 @@
 package test;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -12,25 +15,28 @@ import static org.junit.jupiter.api.Assertions.*;
 class TotalExpenseConstantsTest
 {
 
+    /**
+     * Get an instance of the Logger
+     */
+    private static final Logger logger = LogManager.getLogger(TotalExpenseConstantsTest.class.getName());
     TotalExpenseConstants totalExpense = null;
 
     @BeforeEach
     /**
-     *
+     * Set up
      */
     void setUp()
     {
         totalExpense = new TotalExpenseConstants();
-
-
     }
 
     @AfterEach
     /**
-     *
+     * Tear down
      */
     void tearDown()
     {
+        totalExpense = null;
     }
 
     @Test
@@ -40,6 +46,8 @@ class TotalExpenseConstantsTest
     void getInputFileName()
     {
 
+        assertFalse(TotalExpenseConstants.getInputFileName().isEmpty());
+        logger.debug("@test getInputFileName" + TotalExpenseConstants.getInputFileName());
     }
 
     @Test
@@ -48,6 +56,7 @@ class TotalExpenseConstantsTest
      */
     void getOutputFileNamePrefix()
     {
+        assertFalse(TotalExpenseConstants.getOutputFileNamePrefix().isEmpty());
     }
 
     @Test
@@ -56,6 +65,7 @@ class TotalExpenseConstantsTest
      */
     void getOutputFileNameSuffix()
     {
+        assertFalse(TotalExpenseConstants.getOutputFileNameSuffix().isEmpty());
     }
 
     @Test
@@ -64,5 +74,7 @@ class TotalExpenseConstantsTest
      */
     void getOutputFilePath()
     {
+        assertFalse(TotalExpenseConstants.getOutputFilePath().isEmpty());
+        logger.debug("@test getInputFileName" + TotalExpenseConstants.getOutputFilePath());
     }
 }

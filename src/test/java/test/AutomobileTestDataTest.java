@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import poi.PoiData;
 
 import java.util.ArrayList;
 
@@ -132,6 +133,26 @@ class AutomobileTestDataTest
         String actual = autodata.toString();
         logger.debug("@test toString actual: " + actual);
         assertTrue(actual.contains(expected));
+
+    }
+
+    @Test
+    void handlePoiDataRowResults()
+    {
+        ArrayList<PoiData> poiList = new ArrayList<PoiData>();
+        PoiData poi = new PoiData(0, 0, "Hi");
+        poiList.add(poi);
+        PoiData poi2 = new PoiData(0, 0, "Hi");
+        poiList.add(poi2);
+        PoiData poi3 = new PoiData(0, 0, "Hi");
+        poiList.add(poi3);
+        PoiData poi4 = new PoiData(0, 0, "Hi");
+        poiList.add(poi4);
+        PoiData poi5 = new PoiData(0, 0, "Hi");
+        poiList.add(poi5);
+        autodata.handlePoiDataRowResults(poiList);
+        assertFalse(autodata.getTestDataList().isEmpty());
+        logger.debug("@test testHandlePoiData(): " + autodata.getTestDataList());
 
     }
 }

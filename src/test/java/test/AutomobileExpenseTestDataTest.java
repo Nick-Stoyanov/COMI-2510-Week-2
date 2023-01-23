@@ -11,8 +11,7 @@ import poi.PoiData;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Test
@@ -132,8 +131,21 @@ class AutomobileExpenseTestDataTest
      */
     void handlePoiDataRowResults()
     {
+
         ArrayList<PoiData> poiList = new ArrayList<PoiData>();
-        PoiData poi = new PoiData(1, 2, 3);
+        PoiData poi = new PoiData(0, 0, "Hi");
+        poiList.add(poi);
+        PoiData poi2 = new PoiData(0, 0, "Hi");
+        poiList.add(poi2);
+        PoiData poi3 = new PoiData(0, 0, "Hi");
+        poiList.add(poi3);
+        PoiData poi4 = new PoiData(0, 0, "Hi");
+        poiList.add(poi4);
+        PoiData poi5 = new PoiData(0, 0, "Hi");
+        poiList.add(poi5);
+        data.handlePoiDataRowResults(poiList);
+        assertFalse(data.getTestDataList().isEmpty());
+        logger.debug("@test testHandlePoiData(): " + data.getTestDataList());
     }
 
     @Test
