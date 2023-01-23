@@ -5,8 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import test.AutomobileExpenseTestData;
-import test.TestDataSource;
 
 import java.util.ArrayList;
 
@@ -24,16 +22,32 @@ class PoiReadDataListTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(PoiReadDataListTest.class.getName());
+    /**
+     * poi
+     */
     PoiReadDataList poi = null;
+    /**
+     * list
+     */
     ArrayList<ArrayList<PoiData>> testList = null;
+    /**
+     * row
+     */
     ArrayList<PoiData> row = null;
 
-    @BeforeEach
+    /**
+     * constructor
+     */
+    public PoiReadDataListTest()
+    {
+    }
+
     /**
      * Create new PoiReadDataList each time test is run
-     *
+     * <p>
      * create hard coded list of lists to test with
      */
+    @BeforeEach
     void setUp()
     {
         poi = new PoiReadDataList("src/main/resources/in/TravelExpenses.xlsx", 1);
@@ -59,10 +73,10 @@ class PoiReadDataListTest
 
     }
 
-    @AfterEach
     /**
-     *
+     * tear down
      */
+    @AfterEach
     void tearDown()
     {
         poi = null;
@@ -70,10 +84,10 @@ class PoiReadDataListTest
         row = null;
     }
 
-    @Test
     /**
      * test for getTransposedTestDataList
      */
+    @Test
     void getTransposedTestDataList()
     {
         logger.debug("@test test getTransposedTestDataList original: " + testList);
@@ -84,20 +98,20 @@ class PoiReadDataListTest
 
     }
 
-    @Test
     /**
      * test for getMaxColumns
      */
+    @Test
     void getMaxColumns()
     {
         assertEquals(5, poi.getMaxColumns());
         logger.debug("@test getMaxColumns(): " + poi.getMaxColumns());
     }
 
-    @Test
     /**
      * test for getMaxRows
      */
+    @Test
     void getMaxRows()
     {
         assertEquals(6, poi.getMaxRows());
@@ -105,10 +119,10 @@ class PoiReadDataListTest
 
     }
 
-    @Test
     /**
      * test for getTestDataList
      */
+    @Test
     void getTestDataList()
     {
         assertTrue(poi.getTestDataList() instanceof ArrayList<ArrayList<PoiData>>);
@@ -116,10 +130,10 @@ class PoiReadDataListTest
 
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "this.getMaxRows()= 6 this.getMaxColumns()= 5 this.getPoiDataList()=";

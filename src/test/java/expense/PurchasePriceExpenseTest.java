@@ -18,7 +18,17 @@ class PurchasePriceExpenseTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(PurchasePriceExpenseTest.class.getName());
+    /**
+     * expense
+     */
     PurchasePriceExpense expense = null;
+
+    /**
+     * constructor
+     */
+    public PurchasePriceExpenseTest()
+    {
+    }
 
     /**
      * Set up new expense with each run of the test

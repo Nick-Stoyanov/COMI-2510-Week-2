@@ -18,40 +18,50 @@ class SalesTripTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(SalesTripTest.class.getName());
+    /**
+     * trip
+     */
     SalesTrip trip = null;
 
-    @BeforeEach
+    /**
+     * constructor
+     */
+    public SalesTripTest()
+    {
+    }
+
     /**
      * Create new sales trip each time the test is run
      */
+    @BeforeEach
     void setUp()
     {
         trip = new SalesTrip("destination city name", "from city name", 1, 1);
     }
 
-    @AfterEach
     /**
-     *
+     * tear down
      */
+    @AfterEach
     void tearDown()
     {
         trip = null;
     }
 
-    @Test
     /**
      * test for getDestinationCity
      */
+    @Test
     void getDestinationCity()
     {
         assertTrue(trip.getDestinationCity().contains("destination city name"));
         logger.debug("@test getDestinationCity " + trip.getDestinationCity());
     }
 
-    @Test
     /**
      * test for setDestinationCity
      */
+    @Test
     void setDestinationCity()
     {
         trip.setDestinationCity("name");
@@ -59,20 +69,20 @@ class SalesTripTest
         logger.debug("@test test setDestinationCity() " + trip.getDestinationCity());
     }
 
-    @Test
     /**
      * test for getFromCity
      */
+    @Test
     void getFromCity()
     {
         assertTrue(trip.getFromCity().contains("from city name"));
         logger.debug("@test getFromCity " + trip.getFromCity());
     }
 
-    @Test
     /**
      * test for setFromCity
      */
+    @Test
     void setFromCity()
     {
         trip.setFromCity("name");
@@ -80,20 +90,20 @@ class SalesTripTest
         logger.debug("@test test setFromCity() " + trip.getFromCity());
     }
 
-    @Test
     /**
      * test for getDistance
      */
+    @Test
     void getDistance()
     {
         assertEquals(1, trip.getDistance());
         logger.debug("@test test getDistance() " + trip.getDistance());
     }
 
-    @Test
     /**
      * test for setDistance
      */
+    @Test
     void setDistance()
     {
         trip.setDistance(100);
@@ -102,20 +112,20 @@ class SalesTripTest
 
     }
 
-    @Test
     /**
      * test for getDuration
      */
+    @Test
     void getDuration()
     {
         assertEquals(1, trip.getDuration());
         logger.debug("@test test getDuration " + trip.getDuration());
     }
 
-    @Test
     /**
      * test for setDuration
      */
+    @Test
     void setDuration()
     {
         trip.setDuration(100);
@@ -123,20 +133,20 @@ class SalesTripTest
         logger.debug("@test test setDuration " + trip.getDuration());
     }
 
-    @Test
     /**
      * test for getKey
      */
+    @Test
     void getKey()
     {
         assertTrue(trip.getKey() > -1);
         logger.debug("@test test getKey " + trip.getKey());
     }
 
-    @Test
     /**
      * test for setKey
      */
+    @Test
     void setKey()
     {
         trip.setKey(500);
@@ -144,15 +154,15 @@ class SalesTripTest
         logger.debug("@test test setKey() " + trip.getKey());
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "class sales.SalesTrip this.getFromCity()=from city name this.getDestinationCity()=destination city name this.getDistance()=1.0 this.getDuration()=1.0";
         String actual = this.trip.toString();
         assertTrue(actual.contains(expected));
-        logger.debug("@test test toString() " + "\nexpected " + expected + "\nactual " +  actual);
+        logger.debug("@test test toString() " + "\nexpected " + expected + "\nactual " + actual);
     }
 }

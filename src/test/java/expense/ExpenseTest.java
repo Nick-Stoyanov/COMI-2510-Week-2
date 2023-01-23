@@ -17,7 +17,17 @@ class ExpenseTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(ExpenseTest.class.getName());
+    /**
+     * expense
+     */
     Expense expense = null;
+
+    /**
+     * constructor
+     */
+    public ExpenseTest()
+    {
+    }
 
     /**
      * Create a new concrete expense class
@@ -62,6 +72,9 @@ class ExpenseTest
         };
     }
 
+    /**
+     * tear down
+     */
     @AfterEach
     void tearDown()
     {

@@ -25,16 +25,32 @@ class TravelEntertainmentExpenseTestDataTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(TravelEntertainmentExpenseTestDataTest.class.getName());
+    /**
+     * new data
+     */
     TravelEntertainmentExpenseTestData data = null;
 
+    /**
+     * new list
+     */
     ArrayList<TravelEntertainmentExpense> expenseList = null;
 
+    /**
+     * ne expense
+     */
     TravelEntertainmentExpense expense = null;
 
-    @BeforeEach
     /**
-     *
+     * constructor
      */
+    public TravelEntertainmentExpenseTestDataTest()
+    {
+    }
+
+    /**
+     * set up
+     */
+    @BeforeEach
     void setUp()
     {
         data = new TravelEntertainmentExpenseTestData(false);
@@ -46,39 +62,38 @@ class TravelEntertainmentExpenseTestDataTest
 
     }
 
-    @AfterEach
     /**
-     *
+     * set up
      */
+    @AfterEach
     void tearDown()
     {
     }
 
-    @Test
     /**
      * test for getFoodExpense
      */
+    @Test
     void getFoodExpense()
     {
         assertTrue(data.getFoodExpense("test") instanceof FoodExpense);
         logger.debug("@test test GetFoodExpense: " + data.getFoodExpense("test"));
     }
 
-    @Test
     /**
      * test for getHotelExpense
      */
+    @Test
     void getHotelExpense()
     {
         assertTrue(data.getHotelExpense("test") instanceof HotelExpense);
         logger.debug("@test test GetHotelExpense: " + data.getHotelExpense("test"));
     }
 
-
-    @Test
     /**
      * test for handlePoiDataRowResults
      */
+    @Test
     void handlePoiDataRowResults()
     {
         ArrayList<PoiData> poiList = new ArrayList<PoiData>();
@@ -97,10 +112,10 @@ class TravelEntertainmentExpenseTestDataTest
         logger.debug("@test testHandlePoiData(): " + data.getTestDataList());
     }
 
-    @Test
     /**
      * test for getWorksheetNumber
      */
+    @Test
     void getWorksheetNumber()
     {
         int expected = 3;
@@ -109,24 +124,23 @@ class TravelEntertainmentExpenseTestDataTest
         logger.debug("@test getWorksheetNumber: " + "\nactual: " + actual + "\nexpected: " + expected);
     }
 
-
-    @Test
     /**
      * test for getFileName
      */
+    @Test
     void getFileName()
     {
         String expected = "src/main/resources/in/TravelExpenses.xlsx";
         String actual = data.getFileName();
         assertTrue(actual.contains(expected));
-        logger.debug("@test getFileName(): "+ data.getFileName());
+        logger.debug("@test getFileName(): " + data.getFileName());
         //assertTrue()
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "TravelEntertainmentExpenseTestData{testDataList=[class expense";

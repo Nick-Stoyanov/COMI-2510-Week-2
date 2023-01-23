@@ -19,7 +19,17 @@ class FuelGaugeTest
      */
     private static final Logger logger = LogManager.getLogger(FuelGaugeTest.class.getName());
 
+    /**
+     * fuel
+     */
     FuelGauge gauge = null;
+
+    /**
+     * constructor
+     */
+    public FuelGaugeTest()
+    {
+    }
 
     /**
      * Create new gauge each time test runs
@@ -107,7 +117,7 @@ class FuelGaugeTest
      */
     @Test
     void testToString()
-     {
+    {
         String expected = "class gauge.FuelGauge";
         logger.debug(expected);
         String actual = this.gauge.toString();

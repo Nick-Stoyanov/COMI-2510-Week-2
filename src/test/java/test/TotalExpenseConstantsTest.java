@@ -7,7 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 /**
  * Test
@@ -19,30 +19,40 @@ class TotalExpenseConstantsTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(TotalExpenseConstantsTest.class.getName());
+    /**
+     * expense
+     */
     TotalExpenseConstants totalExpense = null;
 
-    @BeforeEach
+    /**
+     * constructor
+     */
+    public TotalExpenseConstantsTest()
+    {
+    }
+
     /**
      * Set up
      */
+    @BeforeEach
     void setUp()
     {
         totalExpense = new TotalExpenseConstants();
     }
 
-    @AfterEach
     /**
      * Tear down
      */
+    @AfterEach
     void tearDown()
     {
         totalExpense = null;
     }
 
-    @Test
     /**
      * test for getInputFileName
      */
+    @Test
     void getInputFileName()
     {
 
@@ -50,28 +60,28 @@ class TotalExpenseConstantsTest
         logger.debug("@test getInputFileName" + TotalExpenseConstants.getInputFileName());
     }
 
-    @Test
     /**
      * test for getOutputFileNamePrefix
      */
+    @Test
     void getOutputFileNamePrefix()
     {
         assertFalse(TotalExpenseConstants.getOutputFileNamePrefix().isEmpty());
     }
 
-    @Test
     /**
      * test for getOutputFileNameSuffix
      */
+    @Test
     void getOutputFileNameSuffix()
     {
         assertFalse(TotalExpenseConstants.getOutputFileNameSuffix().isEmpty());
     }
 
-    @Test
     /**
      * test for getOutputFilePath
      */
+    @Test
     void getOutputFilePath()
     {
         assertFalse(TotalExpenseConstants.getOutputFilePath().isEmpty());

@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Test;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
@@ -17,7 +16,17 @@ class ExpenseHelperTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(ExpenseHelperTest.class.getName());
+    /**
+     * expense
+     */
     ExpenseHelper expenseHelper = new ExpenseHelper();
+
+    /**
+     * constructor
+     */
+    public ExpenseHelperTest()
+    {
+    }
 
     /**
      * Test get food costs method
@@ -27,7 +36,7 @@ class ExpenseHelperTest
     {
 
         assertEquals(2, expenseHelper.getFoodCosts(1, 1, 2));
-        logger.debug("@test- test getFoodCost() expected 2.0: " + expenseHelper.getFoodCosts(1,1,2));
+        logger.debug("@test- test getFoodCost() expected 2.0: " + expenseHelper.getFoodCosts(1, 1, 2));
 
     }
 
@@ -38,7 +47,7 @@ class ExpenseHelperTest
     void getFuelCosts()
     {
         assertEquals(2, expenseHelper.getFuelCosts(1, 1, 2));
-        logger.debug("@test- test getFuelCost() expected 2.0: " + expenseHelper.getFuelCosts(1,1,2));
+        logger.debug("@test- test getFuelCost() expected 2.0: " + expenseHelper.getFuelCosts(1, 1, 2));
 
     }
 
@@ -49,7 +58,7 @@ class ExpenseHelperTest
     void getHotelCosts()
     {
         assertEquals(2, expenseHelper.getHotelCosts(1, 1, 2));
-        logger.debug("@test- test getHotelCost() expected 2.0: " + expenseHelper.getHotelCosts(1,1,2));
+        logger.debug("@test- test getHotelCost() expected 2.0: " + expenseHelper.getHotelCosts(1, 1, 2));
 
     }
 
@@ -60,7 +69,7 @@ class ExpenseHelperTest
     void getOilCosts()
     {
         assertEquals(2, expenseHelper.getOilCosts(1, 1, 2));
-        logger.debug("@test- test getOilCost() expected 2.0: " + expenseHelper.getOilCosts(1,1,2));
+        logger.debug("@test- test getOilCost() expected 2.0: " + expenseHelper.getOilCosts(1, 1, 2));
 
     }
 
@@ -71,7 +80,7 @@ class ExpenseHelperTest
     void getTireCosts()
     {
         assertEquals(2, expenseHelper.getTireCosts(1, 1, 2));
-        logger.debug("@test- test getTireCost() expected 2.0: " + expenseHelper.getTireCosts(1,1,2));
+        logger.debug("@test- test getTireCost() expected 2.0: " + expenseHelper.getTireCosts(1, 1, 2));
 
 
     }

@@ -1,11 +1,13 @@
 package test;
-import org.apache.logging.log4j.Logger;
+
+import expense.TotalExpense;
 import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
  * Test
@@ -17,94 +19,114 @@ class TotalExpenseWriteDataFileTest
      */
     private static final Logger logger = LogManager.getLogger(TotalExpenseWriteDataFileTest.class.getName());
 
+    /**
+     * Data
+     */
     TotalExpenseWriteDataFile data = null;
 
-    @BeforeEach
     /**
-     *
+     * Constructor
      */
+    public TotalExpenseWriteDataFileTest()
+    {
+    }
+
+    /**
+     * set up
+     */
+    @BeforeEach
     void setUp()
     {
         data = new TotalExpenseWriteDataFile();
     }
 
-    @AfterEach
     /**
-     *
+     * tear down
      */
+    @AfterEach
     void tearDown()
     {
         data = null;
     }
 
-    @Test
     /**
      * test for addTotalExpense
      */
+    @Test
     void addTotalExpense()
     {
+        TotalExpense test = new TotalExpense("name");
+        test.addFourTires(1);
+        test.addFuelCost(1);
+        test.addOilChange(1);
+        test.addFoodCost(1);
+        test.addHotelCost(1);
+        data.addTotalExpense(test);
+
+
     }
 
-    @Test
     /**
      * test for addTotalExpenseHeading
      */
+    @Test
     void addTotalExpenseHeading()
     {
+
     }
 
-    @Test
     /**
      * test for getDataList
      */
+    @Test
     void getDataList()
     {
     }
 
-    @Test
     /**
      * test for setDataList
      */
+    @Test
     void setDataList()
     {
     }
 
-    @Test
     /**
      * test for getFileNamePrefix
      */
+    @Test
     void getFileNamePrefix()
     {
     }
 
-    @Test
     /**
      * test for getFileNameSuffix
      */
+    @Test
     void getFileNameSuffix()
     {
     }
 
-    @Test
     /**
      * test for getFilePath
      */
+    @Test
     void getFilePath()
     {
     }
 
-    @Test
     /**
      * test for useNameUnique
      */
+    @Test
     void useNameUnique()
     {
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "";

@@ -26,6 +26,9 @@ class TotalExpenseTest
         super();
     }
 
+    /**
+     * expense
+     */
     TotalExpense totalExpense = null;
 
     /**

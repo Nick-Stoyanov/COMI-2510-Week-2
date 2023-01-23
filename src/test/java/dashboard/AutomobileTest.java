@@ -21,6 +21,9 @@ class AutomobileTest
      */
     private static final Logger logger = LogManager.getLogger(AutomobileTest.class.getName());
 
+    /**
+     * test
+     */
     Automobile automobile = null;
 
     /**

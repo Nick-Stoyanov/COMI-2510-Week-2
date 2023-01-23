@@ -114,7 +114,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
             value = (double) poiData.getValue();
         } else
         {
-            logger.error("column="+  columnNumber + "Invalid Data Type. Please enter Double.");
+            logger.error("column=" + columnNumber + "Invalid Data Type. Please enter Double.");
         }
         return value;
     }
@@ -190,7 +190,7 @@ public abstract class TestDataSource extends UniqueKeyCounter
     /**
      * Set to true to use excel as the data source, false to use fixed (e.g. hard coded) data
      *
-     * @param useExcel
+     * @param useExcel use excel
      */
     private void setUseExcel(boolean useExcel)
     {

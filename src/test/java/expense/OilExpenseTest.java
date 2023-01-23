@@ -18,7 +18,17 @@ class OilExpenseTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(OilExpenseTest.class.getName());
+    /**
+     * oil
+     */
     OilExpense oilExpense = null;
+
+    /**
+     * constructor
+     */
+    public OilExpenseTest()
+    {
+    }
 
     /**
      * Set up new oil expense with each run of the test

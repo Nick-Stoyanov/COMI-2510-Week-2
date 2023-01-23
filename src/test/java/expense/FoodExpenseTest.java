@@ -19,7 +19,17 @@ class FoodExpenseTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(FoodExpenseTest.class.getName());
+    /**
+     * food
+     */
     FoodExpense foodExpense = null;
+
+    /**
+     * constructor
+     */
+    public FoodExpenseTest()
+    {
+    }
 
     /**
      * Set up new food expense with each run of the test

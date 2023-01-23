@@ -18,7 +18,18 @@ class HotelExpenseTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(HotelExpenseTest.class.getName());
+    /**
+     * hotel
+     */
     HotelExpense hotelExpense = null;
+
+    /**
+     * Constructor
+     */
+    public HotelExpenseTest()
+    {
+        super();
+    }
 
     /**
      * Set up new hotel expense with each run of the test

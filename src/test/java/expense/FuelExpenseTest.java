@@ -16,9 +16,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class FuelExpenseTest
 {
     /**
+     * constructor
+     */
+    public FuelExpenseTest()
+    {
+    }
+
+    /**
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(FuelExpenseTest.class.getName());
+    /**
+     * fuel
+     */
     FuelExpense fuelExpense = null;
 
     /**

@@ -20,7 +20,17 @@ class TireGaugeTest
      */
     private static final Logger logger = LogManager.getLogger(TireGaugeTest.class.getName());
 
+    /**
+     * Tire gauge
+     */
     TireGauge gauge = null;
+
+    /**
+     * constructor
+     */
+    public TireGaugeTest()
+    {
+    }
 
     /**
      * Create new gauge each time test runs

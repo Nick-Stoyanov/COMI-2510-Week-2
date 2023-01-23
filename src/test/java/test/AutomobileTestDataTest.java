@@ -22,13 +22,26 @@ class AutomobileTestDataTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(AutomobileTestDataTest.class.getName());
+    /**
+     * data
+     */
     AutomobileTestData autodata = null;
+    /**
+     * list
+     */
     ArrayList<Automobile> autolist = null;
 
-    @BeforeEach
+    /**
+     * constructor
+     */
+    public AutomobileTestDataTest()
+    {
+    }
+
     /**
      * Set up test data
      */
+    @BeforeEach
     void setUp()
     {
         autodata = new AutomobileTestData(false);
@@ -42,20 +55,20 @@ class AutomobileTestDataTest
         autodata.setTestDataList(autolist);
     }
 
-    @AfterEach
     /**
      * Reset after each method
      */
+    @AfterEach
     void tearDown()
     {
         autodata = null;
         autolist = null;
     }
 
-    @Test
     /**
      * test for getAutomobile
      */
+    @Test
     void getAutomobile()
     {
         Object expected = autodata.getAutomobile("testCarToFind");
@@ -64,19 +77,19 @@ class AutomobileTestDataTest
         logger.debug("actual : " + autolist.get(1).toString());
     }
 
-    @Test
     /**
      * test for getTestDataList
      */
+    @Test
     void getTestDataList()
     {
         assertTrue(autodata.getTestDataList() instanceof ArrayList<Automobile>);
     }
 
-    @Test
     /**
      * test for setTestDataList
      */
+    @Test
     void setTestDataList()
     {
         Automobile car = new Automobile("car");
@@ -87,32 +100,30 @@ class AutomobileTestDataTest
         logger.debug("@test setTestDataList: " + this.autodata.toString());
     }
 
-    @Test
     /**
      * test for needToTransposeExcelData
      */
+    @Test
     void needToTransposeExcelData()
     {
         assertTrue(autodata.needToTransposeExcelData());
         logger.debug("@test needToTransposeExcelData(): " + autodata.needToTransposeExcelData());
     }
 
-
-    @Test
     /**
      * test for getWorksheetNumber
      */
+    @Test
     void getWorksheetNumber()
     {
         assertEquals(0, autodata.getWorksheetNumber());
         logger.debug("@test getWorksheetNumber");
     }
 
-
-    @Test
     /**
      * test for getFileName
      */
+    @Test
     void getFileName()
     {
         String expected = "src/main/resources/in/TravelExpenses.xlsx";
@@ -122,10 +133,10 @@ class AutomobileTestDataTest
         assertTrue(actual.contains(expected));
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "class test.AutomobileTestData";
@@ -136,6 +147,9 @@ class AutomobileTestDataTest
 
     }
 
+    /**
+     * Test
+     */
     @Test
     void handlePoiDataRowResults()
     {

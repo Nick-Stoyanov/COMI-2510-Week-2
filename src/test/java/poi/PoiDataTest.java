@@ -20,33 +20,46 @@ class PoiDataTest
      */
     private static final Logger logger = LogManager.getLogger(PoiDataTest.class.getName());
 
+    /**
+     * data
+     */
     PoiData data = null;
+    /**
+     * data str
+     */
     PoiData dataWithString = null;
 
-    @BeforeEach
+    /**
+     * constructor
+     */
+    public PoiDataTest()
+    {
+    }
+
     /**
      * Create new two PoiData (one with Double and one with String) every time test is run
      */
+    @BeforeEach
     void setUp()
     {
         data = new PoiData(1, 1, 1);
         dataWithString = new PoiData(1, 1, "testString");
     }
 
-    @AfterEach
     /**
      * Reset PoiData's after test is finished
      */
+    @AfterEach
     void tearDown()
     {
         data = null;
         dataWithString = null;
     }
 
-    @Test
     /**
      * test for getColumnNumber
      */
+    @Test
     void getColumnNumber()
     {
         assertEquals(1, data.getColumnNumber());
@@ -54,10 +67,10 @@ class PoiDataTest
 
     }
 
-    @Test
     /**
      * test for setColumnNumber
      */
+    @Test
     void setColumnNumber()
     {
         data.setColumnNumber(123);
@@ -65,20 +78,20 @@ class PoiDataTest
         logger.debug("@test test setColumnNumber(): " + data.getColumnNumber());
     }
 
-    @Test
     /**
      * test for getRowNumber
      */
+    @Test
     void getRowNumber()
     {
         assertEquals(1, data.getRowNumber());
         logger.debug("@test test getColumnNumber(): " + data.getRowNumber());
     }
 
-    @Test
     /**
      * test for setRowNumber
      */
+    @Test
     void setRowNumber()
     {
         data.setRowNumber(1234);
@@ -86,20 +99,20 @@ class PoiDataTest
         logger.debug("@test test setColumnNumber(): " + data.getRowNumber());
     }
 
-    @Test
     /**
      * test for getValue
      */
+    @Test
     void getValue()
     {
         assertTrue(data.getValue() instanceof Object);
         logger.debug("@test test getValue(): " + data.getValue().toString());
     }
 
-    @Test
     /**
      * test for setValue
      */
+    @Test
     void setValue()
     {
         data.setValue("test value");
@@ -108,10 +121,10 @@ class PoiDataTest
 
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToStringWithDouble()
     {
         String expected = "this.getRowNumber()= 1 this.getColumnNumber()= 1 this.getValue()= 1.0";
@@ -120,15 +133,15 @@ class PoiDataTest
         logger.debug(this.data.toString());
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToStringWithString()
     {
         String expected = "this.getRowNumber()= 1 this.getColumnNumber()= 1 this.getValue()= testString";
         String actual = this.dataWithString.toString();
         assertTrue(actual.contains(expected));
-        logger.debug("@test test toStringWithString(): " +"\nexpected: " + expected + "\nactual: " + actual);
+        logger.debug("@test test toStringWithString(): " + "\nexpected: " + expected + "\nactual: " + actual);
     }
 }

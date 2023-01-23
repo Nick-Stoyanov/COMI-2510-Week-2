@@ -9,13 +9,27 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+/**
+ * Test
+ */
 class TireExpenseTest
 {
     /**
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(TireExpenseTest.class.getName());
+    /**
+     * expense
+     */
     TireExpense expense = null;
+
+    /**
+     * Constructor
+     */
+    public TireExpenseTest()
+    {
+
+    }
 
     /**
      * Set up new expense with each run of the test

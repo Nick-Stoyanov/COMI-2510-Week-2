@@ -23,31 +23,42 @@ class AutomobileExpenseTestDataTest
      */
     private static final Logger logger = LogManager.getLogger(AutomobileExpenseTestDataTest.class.getName());
 
+    /**
+     * new data
+     */
     AutomobileExpenseTestData data = null;
 
-    @BeforeEach
     /**
-     *  Create new expense passing false so the program uses hard coded data
-     *  Set to true to use Excel data
+     * Constructor
      */
+    public AutomobileExpenseTestDataTest()
+    {
+        super();
+    }
+
+    /**
+     * Create new expense passing false so the program uses hard coded data
+     * Set to true to use Excel data
+     */
+    @BeforeEach
     void setUp()
     {
         data = new AutomobileExpenseTestData(false);
     }
-
-    @AfterEach
     /**
      * Reset expense data when test is finished
      */
+    @AfterEach
+
     void tearDown()
     {
         data = null;
     }
 
-    @Test
     /**
      * test for getFuelExpense
      */
+    @Test
     void getFuelExpense()
     {
         String name = "fuel";
@@ -55,10 +66,10 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test getFuelExpense(): " + data.getFuelExpense(name));
     }
 
-    @Test
     /**
      * test for getOilExpense
      */
+    @Test
     void getOilExpense()
     {
         String name = "oil";
@@ -66,10 +77,10 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test getOilExpense(): " + data.getOilExpense(name));
     }
 
-    @Test
     /**
      * test for getPurchasePriceExpense
      */
+    @Test
     void getPurchasePriceExpense()
     {
         String name = "purchase";
@@ -77,20 +88,20 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test getPurchasePriceExpense(): " + data.getPurchasePriceExpense(name));
     }
 
-    @Test
     /**
      * test for getTestDataList
      */
+    @Test
     void getTestDataList()
     {
         assertTrue(data.getTestDataList() instanceof ArrayList<Expense>);
         logger.debug("@test test getTestDataList(): " + data.getTestDataList());
     }
 
-    @Test
     /**
      * test for setTestDataList by adding a test fuel expense object to a new list
      */
+    @Test
     void setTestDataList()
     {
         ArrayList<Expense> testList = new ArrayList<>();
@@ -100,10 +111,10 @@ class AutomobileExpenseTestDataTest
         assertEquals(1, data.getTestDataList().get(0).getExpense());
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "AutomobileExpenseTestData{testDataList=[class expense.PurchasePriceExpense this.getKey()=";
@@ -114,10 +125,11 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test toString(): " + data.toString());
     }
 
-    @Test
+
     /**
-     * test for getTireExpense
+     * test
      */
+    @Test
     void getTireExpense()
     {
         String name = "tire";
@@ -125,10 +137,10 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test getTireExpense(): " + data.getTireExpense(name));
     }
 
-    @Test
     /**
      * test for handlePoiDataRowResults
      */
+    @Test
     void handlePoiDataRowResults()
     {
 
@@ -148,10 +160,10 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test testHandlePoiData(): " + data.getTestDataList());
     }
 
-    @Test
     /**
      * test for getWorksheetNumber
      */
+    @Test
     void getWorksheetNumber()
     {
         int expected = 0;
@@ -159,11 +171,10 @@ class AutomobileExpenseTestDataTest
         logger.debug("@test getWorksheetNumber: " + "\nexpected: " + expected + "\nactual: " + data.getTestDataList());
     }
 
-
-    @Test
     /**
      * test for getFileName
      */
+    @Test
     void getFileName()
     {
         String expected = "src/main/resources/in/TravelExpenses.xlsx";

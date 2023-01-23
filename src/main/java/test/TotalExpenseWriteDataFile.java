@@ -15,7 +15,7 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
     /**
      * Data list
      */
-    protected ArrayList<ArrayList<Object>> dataList;
+    protected ArrayList<ArrayList<Object>> dataList = new ArrayList<>();
 
     /**
      * Default constructor
@@ -43,7 +43,9 @@ public class TotalExpenseWriteDataFile extends PoiWriteDataList
         data.add(totalExpense.getFoodCost());
         data.add(totalExpense.getGrandTotalCost());
 
-        this.getDataList().add(data);
+        this.dataList.add(data);
+
+
 
     }
 

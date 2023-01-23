@@ -6,8 +6,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 /**
  * Test
  */
@@ -18,31 +16,41 @@ class TotalExpenseTestTest
      */
     private static final Logger logger = LogManager.getLogger(TotalExpenseTestTest.class.getName());
 
+    /**
+     * test
+     */
     TotalExpenseTest test = null;
 
-    @BeforeEach
     /**
-     *
+     * constructor
      */
+    public TotalExpenseTestTest()
+    {
+    }
+
+    /**
+     * set up
+     */
+    @BeforeEach
     void setUp()
     {
         test = new TotalExpenseTest();
 
     }
 
-    @AfterEach
     /**
-     *
+     * tear down
      */
+    @AfterEach
     void tearDown()
     {
         test = null;
     }
 
-    @Test
     /**
      * test for main
      */
+    @Test
     void testMainNoArgs()
     {
     }

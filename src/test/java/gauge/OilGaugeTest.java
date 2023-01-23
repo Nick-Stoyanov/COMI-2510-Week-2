@@ -20,7 +20,17 @@ class OilGaugeTest
      */
     private static final Logger logger = LogManager.getLogger(OilGaugeTest.class.getName());
 
+    /**
+     * gauge
+     */
     OilGauge gauge = null;
+
+    /**
+     * constructor
+     */
+    public OilGaugeTest()
+    {
+    }
 
     /**
      * Create new gauge each time test runs

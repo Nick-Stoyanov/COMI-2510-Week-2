@@ -18,7 +18,17 @@ class TravelEntertainmentExpenseTest
      */
     private static final Logger logger = LogManager.getLogger(TravelEntertainmentExpenseTest.class.getName());
 
+    /**
+     * expense
+     */
     TravelEntertainmentExpense expense = null;
+
+    /**
+     * constructor
+     */
+    public TravelEntertainmentExpenseTest()
+    {
+    }
 
     /**
      * Create new expense with each test run

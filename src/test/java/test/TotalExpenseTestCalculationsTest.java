@@ -1,8 +1,8 @@
 package test;
 
 
-import expense.Expense;
 import expense.TotalExpense;
+import expense.TravelEntertainmentExpense;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.AfterEach;
@@ -23,156 +23,218 @@ class TotalExpenseTestCalculationsTest
      * Get an instance of the Logger
      */
     private static final Logger logger = LogManager.getLogger(TotalExpenseTestCalculationsTest.class.getName());
-    TotalExpenseTestCalculations totalCalc = null;
-    @BeforeEach
     /**
-     *
+     * data
      */
+    TotalExpenseTestCalculations data = null;
+
+    /**
+     * Constructor
+     */
+    public TotalExpenseTestCalculationsTest()
+    {
+    }
+
+    /**
+     * Set up
+     */
+    @BeforeEach
     void setUp()
     {
-        totalCalc = new TotalExpenseTestCalculations();
+        data = new TotalExpenseTestCalculations();
     }
 
-    @AfterEach
     /**
-     *
+     * Tear down
      */
+    @AfterEach
     void tearDown()
     {
+        data = null;
     }
 
-    @Test
     /**
      * test for calculateGrandTotals
      * should return a total expense
      */
+    @Test
     void calculateGrandTotals()
     {
         ArrayList<TotalExpense> list = new ArrayList<>();
-        totalCalc.setTotalCostList(list);
-        assertTrue(totalCalc.calculateGrandTotals()instanceof TotalExpense);
-        assertNotNull(totalCalc.calculateGrandTotals());
-        logger.debug("@test CalculateGrandTotals(): " + totalCalc.calculateGrandTotals().toString());
+        data.setTotalCostList(list);
+        assertTrue(data.calculateGrandTotals() instanceof TotalExpense);
+        assertNotNull(data.calculateGrandTotals());
+        logger.debug("@test CalculateGrandTotals(): " + data.calculateGrandTotals().toString());
     }
 
-    @Test
     /**
      * test for calculateTotals
      */
+    @Test
     void calculateTotals()
     {
+        ArrayList<TotalExpense> testList = new ArrayList<>();
+        TotalExpense testExpense = new TotalExpense("test");
+        testExpense.setHotelCost(1);
+        testExpense.setFoodCost(1);
+        testExpense.setName("name");
+
+
+        testList.add(testExpense);
+        data.setTotalCostList(testList);
+        logger.debug("test" + data.getTotalCostList());
+
+        assertFalse(data.getTotalCostList().isEmpty());
     }
 
-    @Test
     /**
      * test for getAutomobileTestData
      */
+    @Test
     void getAutomobileTestData()
     {
+        AutomobileTestData foo = new AutomobileTestData(false);
+        data.setAutomobileTestData(foo);
+        assertTrue(data.getAutomobileTestData() instanceof AutomobileTestData);
     }
 
-    @Test
     /**
      * test for setAutomobileTestData
      */
+    @Test
     void setAutomobileTestData()
     {
+        AutomobileTestData foo = new AutomobileTestData(false);
+        data.setAutomobileTestData(foo);
+
+        assertTrue(data.getAutomobileTestData() instanceof AutomobileTestData);
+
     }
 
-    @Test
     /**
      * test for getExpenseTestData
      */
+    @Test
     void getExpenseTestData()
     {
+        AutomobileExpenseTestData foo = new AutomobileExpenseTestData(false);
+        data.setAutomobileExpenseTestData(foo);
+
+        assertTrue(data.getExpenseTestData() instanceof AutomobileExpenseTestData);
+
     }
 
-    @Test
     /**
      * test for getSalesTripTestData
      */
+    @Test
     void getSalesTripTestData()
     {
+        SalesTripTestData foo = new SalesTripTestData(false);
+        data.setSalesTripTestData(foo);
+
+        assertTrue(data.getSalesTripTestData() instanceof SalesTripTestData);
     }
 
-    @Test
     /**
      * test for setSalesTripTestData
      */
+    @Test
     void setSalesTripTestData()
     {
+        SalesTripTestData foo = new SalesTripTestData(false);
+        data.setSalesTripTestData(foo);
+
+        assertTrue(data.getSalesTripTestData() instanceof SalesTripTestData);
     }
 
-    @Test
     /**
      * test for getTotalCostList
      */
+    @Test
     void getTotalCostList()
     {
+        ArrayList<TotalExpense> testList = new ArrayList<>();
+        TotalExpense test = new TotalExpense("foo");
+        testList.add(test);
+
+        String expected = "foo";
+        String actual = testList.get(0).getName();
+        assertTrue(actual.contains(expected));
     }
 
-    @Test
     /**
      * test for setTotalCostList
      */
+    @Test
     void setTotalCostList()
     {
+        ArrayList<TotalExpense> testList = new ArrayList<>();
+        TotalExpense test = new TotalExpense("foo");
+        data.setTotalCostList(testList);
+
+        assertTrue(data.getTotalCostList().isEmpty());
+
+
     }
 
-    @Test
     /**
      * test for getTravelExpenseData
      */
+    @Test
     void getTravelExpenseData()
     {
+        TravelEntertainmentExpense data = new TravelEntertainmentExpense("name", 1, 1);
+
     }
 
-    @Test
     /**
      * test for setAutomobileExpenseTestData
      */
+    @Test
     void setAutomobileExpenseTestData()
     {
     }
 
-    @Test
     /**
      * test for setTravelEntertainmentExpenseData
      */
+    @Test
     void setTravelEntertainmentExpenseData()
     {
     }
 
-    @Test
     /**
      * test for getKey
      */
+    @Test
     void getKey()
     {
+        assertTrue(data.getKey() > -1);
     }
 
-    @Test
     /**
      * test for setKey
      */
+    @Test
     void setKey()
     {
-        int expected =123;
-        totalCalc.setKey(expected);
+        int expected = 123;
+        data.setKey(expected);
         logger.debug("@test setKey() expected: " + expected);
-        assertEquals(expected,this.totalCalc.getKey());
-        logger.debug("@test setKey() actual: " + this.totalCalc.getKey());
+        assertEquals(expected, this.data.getKey());
+        logger.debug("@test setKey() actual: " + this.data.getKey());
     }
 
-    @Test
     /**
      * test for testToString
      */
+    @Test
     void testToString()
     {
         String expected = "";
         logger.debug("@test toString() expected: " + expected);
-        String actual = totalCalc.toString();
+        String actual = data.toString();
         logger.debug("@test toString() expected: " + actual);
         assertTrue(actual.contains(expected));
     }
